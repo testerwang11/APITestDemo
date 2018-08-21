@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autotest.database.dao.ApiRunHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.autotest.database.model.ApiRunHistory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="host" jdbcType="VARCHAR" property="host" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="parameters" jdbcType="VARCHAR" property="parameters" />
+    <result column="requestHeader" jdbcType="VARCHAR" property="requestheader" />
+    <result column="responseHeader" jdbcType="VARCHAR" property="responseheader" />
+    <result column="responseCode" jdbcType="INTEGER" property="responsecode" />
+    <result column="startTime" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="duration" jdbcType="INTEGER" property="duration" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="response" jdbcType="LONGVARCHAR" property="response" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from api_run_history
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.autotest.database.model.ApiRunHistory">
+    insert into api_run_history (id, name, host, 
+      url, parameters, requestHeader, 
+      responseHeader, responseCode, startTime, 
+      endTime, duration, status, 
+      response)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{host,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{parameters,jdbcType=VARCHAR}, #{requestheader,jdbcType=VARCHAR}, 
+      #{responseheader,jdbcType=VARCHAR}, #{responsecode,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{duration,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
+      #{response,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.autotest.database.model.ApiRunHistory">
+    update api_run_history
+    set name = #{name,jdbcType=VARCHAR},
+      host = #{host,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      parameters = #{parameters,jdbcType=VARCHAR},
+      requestHeader = #{requestheader,jdbcType=VARCHAR},
+      responseHeader = #{responseheader,jdbcType=VARCHAR},
+      responseCode = #{responsecode,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      duration = #{duration,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      response = #{response,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, name, host, url, parameters, requestHeader, responseHeader, responseCode, 
+    startTime, endTime, duration, status, response
+    from api_run_history
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, host, url, parameters, requestHeader, responseHeader, responseCode, 
+    startTime, endTime, duration, status, response
+    from api_run_history
+  </select>
+</mapper>

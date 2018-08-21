@@ -1,0 +1,7 @@
+###allure 报告生成
+mvn test -Dtest=com.autotest.flights.SearchTestCase
+mvn site
+mvn jetty:run
+
+###mybati 生成表
+mvn mybatis-generator:generate -e
