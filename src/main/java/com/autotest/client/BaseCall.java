@@ -193,9 +193,14 @@ public class BaseCall {
 	public void addDefHeader() {
 		// client.addHeader("Accept","text/xml,text/javascript,text/html,application/json");
 		// 每个系统默认头信息都不同
-		client.addHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8;text/html");
-		client.addHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36");
-		client.addHeader("Cookie", cookie);
+//		client.addHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8;text/html");
+//		client.addHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36");
+//		client.addHeader("Cookie", cookie);
+		client.addHeader("Accept", "application/json");
+		client.addHeader("Content-Type", "application/json; charset=utf-8");
+		client.addHeader("Origin", "http://hcm-ui-dev.oss-cn-shanghai.aliyuncs.com");
+		client.addHeader("Referer", "http://hcm-ui-dev.oss-cn-shanghai.aliyuncs.com/index.html");
+		client.addHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
 
 	}
 
