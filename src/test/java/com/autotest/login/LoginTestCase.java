@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.autotest.BaseTest;
 import com.autotest.client.BaseCall;
 import com.autotest.enums.MethodType;
+import com.autotest.utils.DiffMethod;
+import com.autotest.utils.FileOper;
 import com.jayway.jsonpath.JsonPath;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -51,6 +53,8 @@ public class LoginTestCase extends BaseTest {
         call.setData(body.toJSONString());
         call.callService();
         response = call.getReturnJsonObject();
+        FileOper.saveJsonSchema(Thread.currentThread() .getStackTrace()[1].getMethodName(), DiffMethod.generateJsonSchema(response));
+        DiffMethod.diffFormatJson(response, FileOper.queryJsonSchema(Thread.currentThread() .getStackTrace()[1].getMethodName()));
         assertEquals(response.getString("code"),code,"验证登录失败Code");
         assertEquals(response.getString("message"), msg, "验证登录失败提示信息");
         assertNull(response.getString("error"),"异常信息为空");
@@ -64,6 +68,8 @@ public class LoginTestCase extends BaseTest {
         call.setData(body.toJSONString());
         call.callService();
         response = call.getReturnJsonObject();
+        FileOper.saveJsonSchema(Thread.currentThread() .getStackTrace()[1].getMethodName(), DiffMethod.generateJsonSchema(response));
+        System.out.println(DiffMethod.diffFormatJson(response, FileOper.queryJsonSchema(Thread.currentThread() .getStackTrace()[1].getMethodName())));
         assertEquals(response.getString("code"),"0","验证登录Code");
         assertEquals(response.getString("message"), "SUCCESS", "验证登录提示信息");
         assertNotNull(response.getString("data"),"异常信息为空");

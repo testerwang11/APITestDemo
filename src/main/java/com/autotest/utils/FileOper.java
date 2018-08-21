@@ -1,6 +1,8 @@
 package com.autotest.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.autotest.enums.FileType;
+import org.apache.commons.io.FileUtils;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 import org.apache.tools.zip.ZipOutputStream;
@@ -8,6 +10,7 @@ import org.apache.tools.zip.ZipOutputStream;
 import java.io.*;
 import java.lang.invoke.MethodType;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.Enumeration;
 
 
@@ -250,6 +253,29 @@ public class FileOper {
 
     public static File forceMkdirs(String parent, String child) {
         return forceMkdirs(new File(parent, child));
+    }
+
+    public static void saveJsonSchema(String filename, Object object)  {
+        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/jsonschema/"+filename+".json");
+        if(!file.exists()) {
+            try {
+                FileUtils.forceMkdirParent(file);
+                file.createNewFile();
+                FileUtils.writeStringToFile(file, object.toString(), "UTF-8");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static JSONObject queryJsonSchema(String filename) {
+        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/jsonschema/"+filename+".json");
+        try {
+            return JSONObject.parseObject(FileUtils.readFileToString(file, Charset.forName("UTF-8")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
