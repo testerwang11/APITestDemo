@@ -4,6 +4,7 @@ target/
 build/
 out/
 gen/
+bin/
 .gradle/
 local.properties
 
