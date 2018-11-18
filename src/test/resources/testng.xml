@@ -9,7 +9,7 @@
     <parameter name="env" value="online" />
     <parameter name="projectName" value="接口测试" />
     <suite-files>
-        <suite-file path="flights.xml"></suite-file>
-        <suite-file path="help.xml"></suite-file>
+        <suite-file path="company.xml"></suite-file>
+        <suite-file path="employer.xml"></suite-file>
     </suite-files>
 </suite>

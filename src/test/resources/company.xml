@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="机票接口测试" thread-count="1" parallel="tests">
+<suite name="接口测试" thread-count="1" parallel="tests">
     <listeners>
         <!-- <listener class-name="com.utils.testng.ExtentReporterNGListener" /> -->
         <!--<listener class-name="org.ATCoreFunction.utils.testng.RetryListener" />-->
@@ -8,7 +8,7 @@
     </listeners>
     <test name="flights">
         <classes>
-            <class name="com.autotest.flights.SearchTestCase"></class>
+            <class name="com.autotest.BaseTest"></class>
         </classes>
     </test>
 </suite>
