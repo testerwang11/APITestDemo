@@ -24,7 +24,9 @@ public class ExtentManager {
 
     public static ExtentReports createInstance(String fileName) {
         extent = new ExtentReports();
-        extent.attachReporter(createHtmlReporter(fileName), createKlovReporter());
+        //extent.attachReporter(createHtmlReporter(fileName), createKlovReporter());
+        extent.attachReporter(createHtmlReporter(fileName));
+
         return extent;
     }
 

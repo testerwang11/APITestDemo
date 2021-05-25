@@ -1,0 +1,1 @@
+{"data":{"isAllSuccess":false,"successedList":[],"failedList":[{"result":{"errorMessage":"只能关联项目级角色"},"roleId":"958abcdd-595c-eb11-902c-cb823b2d279f","userId":"8414781f-5a5c-eb11-902c-cb823b2d279f","projectId":"7bf25225-5559-eb11-902c-cb823b2d279f"}]},"success":true}

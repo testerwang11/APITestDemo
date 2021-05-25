@@ -21,6 +21,9 @@
         <ant.version>1.9.7</ant.version>
         <json-path.version>2.4.0</json-path.version>
         <json-smart.version>2.3</json-smart.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+
     </properties>
 
     <dependencies>
@@ -112,6 +115,16 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.34</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.6.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>9.2.0.jre8</version>
         </dependency>
     </dependencies>
     <build>

@@ -33,7 +33,7 @@ public class ExtentTestNGITestListener implements ITestListener {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        ExtentManager.setProjectName(System.getProperty("projectName"));
+        //ExtentManager.setProjectName(System.getProperty("projectName"));
         extent.flush();
     }
 
@@ -101,7 +101,8 @@ public class ExtentTestNGITestListener implements ITestListener {
     public synchronized static void logger(String message1) {
         try{
             message = message1;
-            //getTest().log(Status.INFO, message);
+            System.out.println(message1);
+            getTest().log(Status.INFO, message);
         }catch(Exception e){
 
         }

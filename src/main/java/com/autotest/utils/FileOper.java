@@ -1,5 +1,6 @@
 package com.autotest.utils;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.autotest.enums.FileType;
 import org.apache.commons.io.FileUtils;
@@ -276,6 +277,36 @@ public class FileOper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void saveResponse(String filename, Object object)  {
+        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/response/"+filename+".rs");
+        if(!file.exists()) {
+            try {
+                FileUtils.forceMkdirParent(file);
+                file.createNewFile();
+                FileUtils.writeStringToFile(file, object.toString(), "UTF-8");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String queryResponse(String filename) {
+        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/response/"+filename+".rs");
+        String content="";
+        try {
+            content = FileUtils.readFileToString(file, Charset.forName("UTF-8"));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return content;
+ /*       try {
+            return JSONObject.parseObject(content);
+        } catch (Exception e) {
+            JSONObject.parseArray(content);
+        }*/
+        //return null;
     }
 
     public static void main(String[] args) throws IOException {

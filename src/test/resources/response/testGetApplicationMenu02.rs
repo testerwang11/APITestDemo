@@ -1,0 +1,1 @@
+{"data":[{"AppCode":"1002","IsHide":false,"IsActive":false,"AppUrl":"http://10.5.6.15:8006/PubPlatform/Login/ssologin?targeturl=","IsInternalIntegration":false,"AppText":"工作流管理","AppStyle":"mp-app_item","IsOutside":true}],"success":true}

@@ -1,0 +1,1 @@
+{"data":[{"HierarchyCode":"zb","IsEndCompany":false,"IsFc":0,"OrderCode":"0001","OrderHierarchyCode":"0001","BUName":"集团","BuFullName":"集团","BuCode":"zb","BUGUID":"11b11db4-e907-4f1f-8835-b9daab6e1f23","CompanyGUID":"11b11db4-e907-4f1f-8835-b9daab6e1f23","BUType":1,"Level":0}],"success":true}

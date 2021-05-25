@@ -1,0 +1,1 @@
+{"data":{"isAllSuccess":true,"successedList":[{"userId":"8414781f-5a5c-eb11-902c-cb823b2d279f","businessUnitId":"291048fe-9a5b-eb11-902c-cb823b2d279f"},{"userId":"8414781f-5a5c-eb11-902c-cb823b2d279f","businessUnitId":"6beaecc6-5459-eb11-902c-cb823b2d279f"}],"failedList":[]},"success":true}

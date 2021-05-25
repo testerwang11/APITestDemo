@@ -3,7 +3,6 @@ package com.autotest.client;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.autotest.enums.MethodType;
-import com.autotest.listeners.ExtentTestNGITestListener;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -11,11 +10,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -73,14 +70,13 @@ public class BaseCall {
 	 * 
 	 */
 	public void setData(String s) {
-		StringEntity se = new StringEntity(s, HTTP.UTF_8);
 
+		StringEntity se = new StringEntity(s, HTTP.UTF_8);
 		this.entity = se;
 	}
 
 	public void setData( Map<String, String> s) {
 		List<NameValuePair> nameValuePairList = new ArrayList<NameValuePair>();
-
 		for (String key : s.keySet()) {
 			nameValuePairList.add(new BasicNameValuePair(key, s.get(key)));
 		}
@@ -214,6 +210,14 @@ public class BaseCall {
 	 */
 	public void addHeader(String key, String value) {
 		client.addHeader(key, value);
+	}
+
+	/**
+	 * 获取请求头
+	 * @return
+	 */
+	public List<String> getReqHeaders() {
+		return client.getReqHeaders();
 	}
 
 	/**

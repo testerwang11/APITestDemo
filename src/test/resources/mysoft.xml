@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="接口测试" thread-count="1" parallel="tests">
+    <listeners>
+        <listener class-name="com.autotest.listeners.ExtentTestNGITestListener" />
+    </listeners>
+    <parameter name="host" value="http://10.5.6.15:8006" />
+    <parameter name="projectName" value="接口测试" />
+    <test name="mysoft">
+        <classes>
+            <!--<class name="com.autotest.mysoft.INavPublicServiceTest"></class>-->
+            <class name="com.autotest.mysoft.IRoleAclPublicServiceTest"></class>
+        </classes>
+    </test>
+</suite>

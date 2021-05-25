@@ -6,7 +6,7 @@
         <!--<listener class-name="org.ATCoreFunction.utils.testng.RetryListener" />-->
         <listener class-name="com.autotest.listeners.ExtentTestNGITestListener" />
     </listeners>
-    <parameter name="env" value="online" />
+    <parameter name="env" value="测试环境" />
     <parameter name="projectName" value="接口测试" />
     <suite-files>
         <suite-file path="company.xml"></suite-file>

@@ -1,0 +1,1 @@
+{"data":[{"HierarchyCode":"zb.001","IsEndCompany":true,"ParentGUID":"11b11db4-e907-4f1f-8835-b9daab6e1f23","IsFc":0,"OrderHierarchyCode":"0001.0001","BUName":"武汉公司","BuFullName":"集团 - 武汉公司","BuCode":"001","BUGUID":"6beaecc6-5459-eb11-902c-cb823b2d279f","CompanyGUID":"6beaecc6-5459-eb11-902c-cb823b2d279f","BUType":1}],"success":true}

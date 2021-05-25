@@ -19,9 +19,6 @@ public class ConfigManager {
     private static ConfigManager instance;
 
     private ConfigManager(String configFile) throws IOException {
-        //FileInputStream inputStream = new FileInputStream(configFile);
-        //prop.load(inputStream);
-        System.out.printf("111:"+configFile);
         InputStream in =ClassLoader.getSystemResourceAsStream(configFile);
         prop.load(in);
 

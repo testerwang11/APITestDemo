@@ -1,7 +1,11 @@
 package com.autotest.utils;
 
+import java.nio.charset.Charset;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+
+import cn.hutool.core.io.FileUtil;
 import org.apache.commons.lang3.text.StrBuilder;
 
 
@@ -347,5 +351,15 @@ public class StringUtils
             result.append(camel.substring(1).toLowerCase());
         }
         return result.toString();
+    }
+
+    public static void main(String[] args) {
+        List<String> tables = FileUtil.readLines("E:\\temp\\表名.txt", Charset.defaultCharset());
+        String temp="";
+        for (String table:tables
+             ) {
+            temp = table+","+temp;
+        }
+        System.out.println(temp);
     }
 }

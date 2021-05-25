@@ -1,6 +1,5 @@
 package com.autotest.client;
 
-import com.autotest.listeners.ExtentTestNGITestListener;
 import com.autotest.utils.DateUtils;
 import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
@@ -413,6 +412,9 @@ public class CallClient {
 	}
 
 	public String entityToString(HttpEntity entity) throws IOException {
+		if(null==entity){
+			return "";
+		}
         BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent(), "UTF-8"));
         StringBuffer sb = new StringBuffer();
         String line;
@@ -508,9 +510,25 @@ public class CallClient {
 		return Cookies;
 	}
 
+	/**
+	 * 获取响应Cookie
+	 * @return
+	 */
 	public String getCookie() {
 		String set_cookie = resp.getFirstHeader("Set-Cookie").getValue();
 		return set_cookie;
+	}
+
+	public List<String> getReqHeaders() {
+		Header[] headers = req.getAllHeaders();
+		String headerName,headerValue;
+		List<String> reqHeaders = new ArrayList<>();
+		for (int i = 0; i < headers.length; i++) {
+			headerName = headers[i].getName();
+			headerValue = headers[i].getValue();
+			reqHeaders.add(headerName+":"+headerValue);
+		}
+		return reqHeaders;
 	}
 
 	/**
@@ -625,6 +643,7 @@ public class CallClient {
 
 	public void logToReport(String message) {
 		System.out.println(message);
+		log.info(message);
 		//ExtentTestNGITestListener.logger(message);
 	}
 

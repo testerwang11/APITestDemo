@@ -2,6 +2,7 @@ package com.autotest.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.autotest.listeners.ExtentTestNGITestListener;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,36 +13,37 @@ public class DiffMethod {
 
     /**
      * 返回当前数据类型
+     *
      * @param source
      * @return
      */
-    public static String getTypeValue(Object source){
+    public static String getTypeValue(Object source) {
 
-        if(source instanceof String){
+        if (source instanceof String) {
             return "String";
         }
 
-        if(source instanceof Integer){
+        if (source instanceof Integer) {
             return "Integer";
         }
 
-        if(source instanceof Float){
+        if (source instanceof Float) {
             return "Float";
         }
 
-        if(source instanceof Long){
+        if (source instanceof Long) {
             return "Long";
         }
 
-        if(source instanceof Double){
+        if (source instanceof Double) {
             return "Double";
         }
 
-        if(source instanceof Date){
+        if (source instanceof Date) {
             return "Date";
         }
 
-        if(source instanceof Boolean){
+        if (source instanceof Boolean) {
             return "Boolean";
         }
 
@@ -51,52 +53,53 @@ public class DiffMethod {
 
     /**
      * 把Object变成JsonSchema
+     *
      * @param source
      * @return
      */
-    public static Object generateJsonSchema(Object source){
+    public static Object generateJsonSchema(Object source) {
         //Object result = new Object();
         //判断是否为JsonObject
-        if(source instanceof JSONObject){
+        if (source instanceof JSONObject) {
             JSONObject jsonResult = new JSONObject();
             //JSONObject jsonResult = JSONObject.parseObject(result.toString());
             JSONObject sourceJSON = JSONObject.parseObject(source.toString());
             Iterator iterator = sourceJSON.keySet().iterator();
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 String key = (String) iterator.next();
                 Object nowValue = sourceJSON.get(key);
-                if(nowValue == null || nowValue.toString().equals("null")){
-                    jsonResult.put(key,"null");
-                }else if(isJsonObject(nowValue)){
-                    jsonResult.put(key,generateJsonSchema(nowValue));
-                }else if(isJsonArray(nowValue)){
+                if (nowValue == null || nowValue.toString().equals("null")) {
+                    jsonResult.put(key, "null");
+                } else if (isJsonObject(nowValue)) {
+                    jsonResult.put(key, generateJsonSchema(nowValue));
+                } else if (isJsonArray(nowValue)) {
                     JSONArray tempArray = JSONArray.parseArray(nowValue.toString());
                     JSONArray newArray = new JSONArray();
-                    if(tempArray != null && tempArray.size() > 0 ){
-                        for(int i = 0 ;i < tempArray.size(); i++){
+                    if (tempArray != null && tempArray.size() > 0) {
+                        for (int i = 0; i < tempArray.size(); i++) {
                             newArray.add(generateJsonSchema(tempArray.get(i)));
                         }
-                        jsonResult.put(key,newArray);
+                        jsonResult.put(key, newArray);
                     }
-                }else if(nowValue instanceof List){
+                } else if (nowValue instanceof List) {
                     List<Object> newList = new ArrayList<Object>();
-                    for(int i = 0;i<((List) nowValue).size();i++){
+                    for (int i = 0; i < ((List) nowValue).size(); i++) {
                         newList.add(((List) nowValue).get(i));
                     }
-                    jsonResult.put(key,newList);
-                }else {
-                    jsonResult.put(key,getTypeValue(nowValue));
+                    jsonResult.put(key, newList);
+                } else {
+                    jsonResult.put(key, getTypeValue(nowValue));
                 }
             }
             return jsonResult;
         }
 
 
-        if(source instanceof JSONArray){
+        if (source instanceof JSONArray) {
             JSONArray jsonResult = JSONArray.parseArray(source.toString());
             JSONArray tempArray = new JSONArray();
-            if(jsonResult != null && jsonResult.size() > 0){
-                for(int i = 0 ;i < jsonResult.size(); i++){
+            if (jsonResult != null && jsonResult.size() > 0) {
+                for (int i = 0; i < jsonResult.size(); i++) {
                     tempArray.add(generateJsonSchema(jsonResult.get(i)));
                 }
                 return tempArray;
@@ -107,28 +110,28 @@ public class DiffMethod {
     }
 
 
-
     /**
      * JSON格式比对
+     *
      * @param currentJSON
      * @param expectedJSON
      * @return
      */
-    public static JSONObject diffJson(JSONObject currentJSON,JSONObject expectedJSON){
+    public static JSONObject diffJson(JSONObject currentJSON, JSONObject expectedJSON) {
 
         JSONObject jsonDiff = new JSONObject();
 
         Iterator iterator = expectedJSON.keySet().iterator();
 
-        while (iterator.hasNext()){
-            String key = (String)iterator.next();
+        while (iterator.hasNext()) {
+            String key = (String) iterator.next();
             Object expectedValue = expectedJSON.get(key);
             Object currentValue = currentJSON.get(key);
-            if(!expectedValue.toString().equals(currentValue.toString())){
+            if (!expectedValue.toString().equals(currentValue.toString())) {
                 JSONObject tempJSON = new JSONObject();
-                tempJSON.put("value",currentValue);
-                tempJSON.put("expected",expectedValue);
-                jsonDiff.put(key,tempJSON);
+                tempJSON.put("value", currentValue);
+                tempJSON.put("expected", expectedValue);
+                jsonDiff.put(key, tempJSON);
             }
         }
         return jsonDiff;
@@ -137,18 +140,19 @@ public class DiffMethod {
 
     /**
      * 判断是否为JSONObject
+     *
      * @param value
      * @return
      */
-    public static boolean isJsonObject(Object value){
+    public static boolean isJsonObject(Object value) {
 
-        try{
-            if(value instanceof JSONObject) {
+        try {
+            if (value instanceof JSONObject) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -156,20 +160,21 @@ public class DiffMethod {
 
     /**
      * 判断是否为JSONArray
+     *
      * @param value
      * @return
      */
-    public static boolean isJsonArray(Object value){
+    public static boolean isJsonArray(Object value) {
 
-        try{
+        try {
 
-            if(value instanceof JSONArray){
+            if (value instanceof JSONArray) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -177,15 +182,16 @@ public class DiffMethod {
 
     /**
      * JSON格式比对，值不能为空,且key需要存在
+     *
      * @param current
      * @param expected
      * @return
      */
-    public static JSONObject diffFormatJson(Object current,Object expected){
+    public static JSONObject diffFormatJson(Object current, Object expected) {
 
         JSONObject jsonDiff = new JSONObject();
 
-        if(isJsonObject(expected)) {
+        if (isJsonObject(expected)) {
 
             JSONObject expectedJSON = JSONObject.parseObject(expected.toString());
             JSONObject currentJSON = JSONObject.parseObject(current.toString());
@@ -228,22 +234,22 @@ public class DiffMethod {
             }
         }
 
-        if(isJsonArray(expected)){
+        if (isJsonArray(expected)) {
             JSONArray expectArray = JSONArray.parseArray(expected.toString());
             JSONArray currentArray = JSONArray.parseArray(current.toString());
 
-            if(expectArray.size() != currentArray.size()){
+            if (expectArray.size() != currentArray.size()) {
                 JSONObject tempJSON = new JSONObject();
-                tempJSON.put("actualLenth",currentArray.size());
-                tempJSON.put("expectLenth",expectArray.size());
-                jsonDiff.put("Length",tempJSON);
+                tempJSON.put("actualLenth", currentArray.size());
+                tempJSON.put("expectLenth", expectArray.size());
+                jsonDiff.put("Length", tempJSON);
             }
 
-            if(expectArray.size() != 0){
+            if (expectArray.size() != 0) {
                 Object expectIndexValue = expectArray.get(0);
                 Object currentIndexValue = currentArray.get(0);
 
-                if(expectIndexValue != null && currentIndexValue != null){
+                if (expectIndexValue != null && currentIndexValue != null) {
                     if (isJsonObject(expectIndexValue) && !JSONObject.parseObject(expectIndexValue.toString()).isEmpty() || isJsonArray(expectIndexValue) && !JSONArray.parseArray(expectIndexValue.toString()).isEmpty()) {
                         JSONObject getResultJSON = new JSONObject();
                         getResultJSON = diffFormatJson(currentIndexValue, expectIndexValue);
@@ -254,7 +260,37 @@ public class DiffMethod {
                 }
             }
         }
+        System.out.println("对比结果:" + jsonDiff);
         return jsonDiff;
+    }
+
+    public static boolean compareResponse(Object current, Object expected) {
+        JSONObject expectedJSON = strToJson(expected);
+        JSONObject currentJSON = strToJson(current);
+
+        if (!FastJsonDiff.compareJson(expectedJSON, currentJSON, null)) {
+            ExtentTestNGITestListener.logger("expected = " + expected);
+            ExtentTestNGITestListener.logger("current = " + current);
+            return false;
+        }
+        if (currentJSON.equals(expectedJSON)) {
+            return true;
+        } else {
+            ExtentTestNGITestListener.logger("expected = " + expected);
+            ExtentTestNGITestListener.logger("current = " + current);
+            return false;
+        }
+    }
+
+    public static JSONObject strToJson(Object object) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject = JSONObject.parseObject(object.toString());
+        } catch (Exception e) {
+            jsonObject.put("tmp", JSONArray.parseArray(object.toString()));
+        }
+        return jsonObject;
+
     }
 
     public static void main(String[] args) {
@@ -278,9 +314,9 @@ public class DiffMethod {
 
         System.out.println("转换成JSONschame:" + diffMethod.generateJsonSchema(jsonObject1).toString());
 
-        System.out.println("当前str2没有msg字段: " + diffMethod.diffFormatJson(jsonObject2,jsonObject1).toString());
+        System.out.println("当前str2没有msg字段: " + diffMethod.diffFormatJson(jsonObject2, jsonObject1).toString());
 
-        System.out.println("当前str2中的status为null值:" + diffMethod.diffFormatJson(jsonObject3,jsonObject1).toString());
+        System.out.println("当前str2中的status为null值:" + diffMethod.diffFormatJson(jsonObject3, jsonObject1).toString());
 
 
     }

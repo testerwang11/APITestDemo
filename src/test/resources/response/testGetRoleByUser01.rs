@@ -1,0 +1,1 @@
+{"data":[{"StandardRoleName":"费用经理","ProfessionalId":"00000000-0000-0000-0000-000000000000","ParentGUID":"f30b7259-9c1f-457a-9e53-6f9b601cf9ad","IsAllowSelect":false,"MyStandardRoleId":"dcabf5bf-ba5b-eb11-902c-cb823b2d279f","StandardRoleTypeName":"公司角色","ProfessionalLine":"","StandardRoleType":"f30b7259-9c1f-457a-9e53-6f9b601cf9ad"}],"success":true}
