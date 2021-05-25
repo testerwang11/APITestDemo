@@ -110,7 +110,7 @@ public class CallClient {
 	/**
 	 * 默认超时时间
 	 */
-	public static int connectTimeout = 10000;
+	public static int connectTimeout = 20000;
 
 	private String entityString = "";
     private HttpEntity entity;
@@ -643,7 +643,7 @@ public class CallClient {
 
 	public void logToReport(String message) {
 		System.out.println(message);
-		log.info(message);
+		//log.info(message);
 		//ExtentTestNGITestListener.logger(message);
 	}
 

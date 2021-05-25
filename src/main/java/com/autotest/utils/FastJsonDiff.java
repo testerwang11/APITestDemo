@@ -2,37 +2,61 @@ package com.autotest.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.autotest.listeners.ExtentTestNGITestListener;
+import org.testng.annotations.Listeners;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
+
 
 public class FastJsonDiff {
 
     public static StringBuilder diffResult = new StringBuilder();
+
+    public static List<String> ignoreFields = Arrays.asList("CreatedTime,VersionNumber,ModifiedTime".split(","));
+
 
     @SuppressWarnings("unchecked")
     public static boolean compareJson(JSONObject json1, JSONObject json2, String key) {
         Iterator i = json1.keySet().iterator();
         while (i.hasNext()) {
             key = (String) i.next();
+/*            if(!ignoreFields.contains(key)){
+                compareJson(json1.get(key), json2.get(key), key);
+            }*/
             compareJson(json1.get(key), json2.get(key), key);
+
         }
+
         if (diffResult.length() == 0) {
             return true;
         }
-        ExtentTestNGITestListener.logger(diffResult.toString());
         return false;
     }
 
+    public static String compareJson(JSONObject json1, JSONObject json2) {
+        Iterator i = json1.keySet().iterator();
+        String key;
+        while (i.hasNext()) {
+            key = (String) i.next();
+            compareJson(json1.get(key), json2.get(key), key);
+        }
+        return diffResult.toString();
+    }
+
     public static void compareJson(Object json1, Object json2, String key) {
+        if (ignoreFields.contains(key)) {
+            //System.out.println("忽略比较:" + key);
+            return;
+        }
         if (json1 instanceof JSONObject) {
             compareJson((JSONObject) json1, (JSONObject) json2, key);
         } else if (json1 instanceof JSONArray) {
             try {
                 compareJson((JSONArray) json1, (JSONArray) json2, key);
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("转换发生异常 key:" + key);
-
             }
         } else if (json1 instanceof String) {
             try {
@@ -43,7 +67,6 @@ public class FastJsonDiff {
                 System.out.println("转换发生异常 key:" + key);
                 e.printStackTrace();
             }
-
         } else {
             compareJson(json1.toString(), json2.toString(), key);
         }
@@ -70,14 +93,14 @@ public class FastJsonDiff {
             if (json1 == null && json2 == null) {
                 System.err.println("不一致：key:" + key + "  在json1和json2中均不存在");
             } else if (json1 == null) {
-                diffResult.append("不一致：key:" + key + "  在json1中不存在"+ "\n");
+                diffResult.append("不一致：key:" + key + "  在json1中不存在" + "\n");
                 //System.err.println("不一致：key:" + key + "  在json1中不存在"+ "\n");
             } else if (json2 == null) {
-                diffResult.append("不一致：key:" + key + "  在json2中不存在"+ "\n");
+                diffResult.append("不一致：key:" + key + "  在json2中不存在" + "\n");
                 //System.err.println("不一致：key:" + key + "  在json2中不存在"+ "\n");
             } else {
                 //System.err.println("不一致：key:" + key + "  未知原因");
-                diffResult.append("不一致：key:" + key + "  未知原因"+ "\n");
+                diffResult.append("不一致：key:" + key + "  未知原因" + "\n");
             }
 
         }
@@ -91,5 +114,15 @@ public class FastJsonDiff {
         JSONObject jsonObject1 = JSONObject.parseObject(st1);
         JSONObject jsonObject2 = JSONObject.parseObject(st2);
         compareJson(jsonObject1, jsonObject2, null);
+
+/*        ClassPathResource resource = new ClassPathResource("config.properties");
+        Properties properties = new Properties();
+        try {
+            properties.load(resource.getStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(properties.get("ignore_field"));*/
+
     }
 }

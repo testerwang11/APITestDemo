@@ -60,4 +60,28 @@ public class BaseService {
         return call;
     }
 
+    /**
+     * 根据认证方式，设置请求头（自定义用户）
+     * @param call
+     * @param auth
+     * @param userName
+     * @return
+     */
+    public BaseCall setAuth(BaseCall call, AuthType auth, String userName) {
+
+        switch (auth.getIndex()){
+            case 1:
+                call.addHeader("AppId", AppId);
+                call.addHeader("AppKey", AppKey);
+                break;
+            case 2:
+                call.addHeader("Cookie", login(userName, "1"));
+                break;
+            default:
+                call.addHeader("_TestMock", "1");
+        }
+
+        return call;
+    }
+
 }

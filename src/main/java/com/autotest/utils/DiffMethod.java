@@ -2,6 +2,7 @@ package com.autotest.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.autotest.enums.DiffType;
 import com.autotest.listeners.ExtentTestNGITestListener;
 
 import java.util.ArrayList;
@@ -9,6 +10,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * JSON比较
+ */
 public class DiffMethod {
 
     /**
@@ -153,6 +157,7 @@ public class DiffMethod {
                 return false;
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -165,15 +170,12 @@ public class DiffMethod {
      * @return
      */
     public static boolean isJsonArray(Object value) {
-
         try {
-
             if (value instanceof JSONArray) {
                 return true;
             } else {
                 return false;
             }
-
         } catch (Exception e) {
             return false;
         }
@@ -188,43 +190,42 @@ public class DiffMethod {
      * @return
      */
     public static JSONObject diffFormatJson(Object current, Object expected) {
-
         JSONObject jsonDiff = new JSONObject();
-
+        //jsonobject逻辑
         if (isJsonObject(expected)) {
-
             JSONObject expectedJSON = JSONObject.parseObject(expected.toString());
             JSONObject currentJSON = JSONObject.parseObject(current.toString());
-
             Iterator iterator = JSONObject.parseObject(expected.toString()).keySet().iterator();
-
             while (iterator.hasNext()) {
                 String key = (String) iterator.next();
                 Object expectedValue = expectedJSON.get(key);
-
                 if (!currentJSON.containsKey(key)) {
                     JSONObject tempJSON = new JSONObject();
                     tempJSON.put("actualKey", "不存在此" + key);
                     tempJSON.put("expectedKey", key);
                     jsonDiff.put(key, tempJSON);
-
                 }
-
                 if (currentJSON.containsKey(key)) {
-
                     Object currentValue = currentJSON.get(key);
-
                     if (expectedValue != null && currentValue == null || expectedValue.toString() != "null" && currentValue.toString() == "null") {
                         JSONObject tempJSON = new JSONObject();
                         tempJSON.put("actualValue", "null");
                         tempJSON.put("expectedValue", expectedValue);
                         jsonDiff.put(key, tempJSON);
                     }
-
                     if (expectedValue != null && currentValue != null) {
-                        if (isJsonObject(expectedValue) && !JSONObject.parseObject(expectedValue.toString()).isEmpty() || isJsonArray(expectedValue) && !JSONArray.parseObject(expectedValue.toString()).isEmpty()) {
-                            JSONObject getResultJSON = new JSONObject();
-                            getResultJSON = diffFormatJson(currentValue, expectedValue);
+                        //jsonobject嵌套jsonobject
+                        if (isJsonObject(expectedValue)) {
+                            if (isJsonObject(expectedValue) && !JSONObject.parseObject(expectedValue.toString()).isEmpty() || isJsonArray(expectedValue) && !JSONArray.parseObject(expectedValue.toString()).isEmpty()) {
+                                JSONObject getResultJSON = diffFormatJson(currentValue, expectedValue);
+                                if (getResultJSON != null) {
+                                    jsonDiff.putAll(getResultJSON);
+                                }
+                            }
+                        }
+                        //jsonobject嵌套jsonarray
+                        if (isJsonArray(expectedValue)) {
+                            JSONObject getResultJSON = diffFormatJson(currentValue, expectedValue);
                             if (getResultJSON != null) {
                                 jsonDiff.putAll(getResultJSON);
                             }
@@ -260,24 +261,64 @@ public class DiffMethod {
                 }
             }
         }
-        System.out.println("对比结果:" + jsonDiff);
         return jsonDiff;
+    }
+
+    public static boolean compareResponse(DiffType diffType, Object current, Object expected) {
+        JSONObject expectedJSON = strToJson(expected);
+        JSONObject currentJSON = strToJson(current);
+        switch (diffType.getIndex()) {
+            case 1:
+                if (currentJSON.equals(expectedJSON)) {
+                    return true;
+                } else {
+                    ExtentTestNGITestListener.logger("严格模式比对:结果不一致");
+                    return false;
+                }
+            case 2:
+                String resultStr = FastJsonDiff.compareJson(expectedJSON, currentJSON);
+                if (resultStr.length() == 0) {
+                    return true;
+                } else {
+                    ExtentTestNGITestListener.logger("宽松模式比对:结果不一致");
+                    ExtentTestNGITestListener.logger("宽松模式比对:\n" + resultStr);
+                    return false;
+
+                }
+            case 3:
+                JSONObject result = diffFormatJson(current, expected);
+                if (result.isEmpty()) {
+                    return true;
+                } else {
+                    ExtentTestNGITestListener.logger("jsonschema比对:结果不一致");
+                    ExtentTestNGITestListener.logger("对比结果:" + result);
+                    return false;
+                }
+            default:
+                if (currentJSON.equals(expectedJSON)) {
+                    return true;
+                }
+        }
+        ExtentTestNGITestListener.logger("expected = " + expected);
+        ExtentTestNGITestListener.logger("current = " + current);
+        return false;
+
     }
 
     public static boolean compareResponse(Object current, Object expected) {
         JSONObject expectedJSON = strToJson(expected);
         JSONObject currentJSON = strToJson(current);
-
+        //比较响应结果
         if (!FastJsonDiff.compareJson(expectedJSON, currentJSON, null)) {
-            ExtentTestNGITestListener.logger("expected = " + expected);
             ExtentTestNGITestListener.logger("current = " + current);
+            ExtentTestNGITestListener.logger("expected = " + expected);
             return false;
         }
         if (currentJSON.equals(expectedJSON)) {
             return true;
         } else {
-            ExtentTestNGITestListener.logger("expected = " + expected);
             ExtentTestNGITestListener.logger("current = " + current);
+            ExtentTestNGITestListener.logger("expected = " + expected);
             return false;
         }
     }

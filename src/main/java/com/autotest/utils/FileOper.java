@@ -1,5 +1,7 @@
 package com.autotest.utils;
 
+import cn.hutool.Hutool;
+import cn.hutool.core.io.FileUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.autotest.enums.FileType;
@@ -160,7 +162,7 @@ public class FileOper {
      * @return 如果目标文件不是zip文件则返回false。
      * @throws IOException 如果发生I/O错误。
      */
-    public static boolean decompressZip(File originFile, String targetDir)  {
+    public static boolean decompressZip(File originFile, String targetDir) {
         try {
             if (FileType.ZIP != getFileType(originFile)) {
                 return false;
@@ -192,7 +194,7 @@ public class FileOper {
                 inputStream.close();
             }
             zipFile.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -256,9 +258,9 @@ public class FileOper {
         return forceMkdirs(new File(parent, child));
     }
 
-    public static void saveJsonSchema(String filename, Object object)  {
-        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/jsonschema/"+filename+".json");
-        if(!file.exists()) {
+    public static void saveJsonSchema(String filename, Object object) {
+        File file = new File(System.getProperty("user.dir") + File.separator + "src/test/resources/jsonschema/" + filename + ".json");
+        if (!file.exists()) {
             try {
                 FileUtils.forceMkdirParent(file);
                 file.createNewFile();
@@ -269,19 +271,19 @@ public class FileOper {
         }
     }
 
-    public static JSONObject queryJsonSchema(String filename) {
-        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/jsonschema/"+filename+".json");
+    public static Object queryJsonSchema(String filename) {
+        String json = FileUtil.readString(System.getProperty("user.dir") + File.separator + "src/test/resources/jsonschema/" + filename + ".json", Charset.defaultCharset());
         try {
-            return JSONObject.parseObject(FileUtils.readFileToString(file, Charset.forName("UTF-8")));
-        } catch (IOException e) {
-            e.printStackTrace();
+            return JSONObject.parseObject(json);
+        }catch (Exception e){
+            return JSONArray.parseArray(json);
+
         }
-        return null;
     }
 
-    public static void saveResponse(String filename, Object object)  {
-        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/response/"+filename+".rs");
-        if(!file.exists()) {
+    public static void saveResponse(String filename, Object object) {
+        File file = new File(System.getProperty("user.dir") + File.separator + "src/test/resources/response/" + filename + ".rs");
+        if (!file.exists()) {
             try {
                 FileUtils.forceMkdirParent(file);
                 file.createNewFile();
@@ -293,11 +295,11 @@ public class FileOper {
     }
 
     public static String queryResponse(String filename) {
-        File file = new File(System.getProperty("user.dir")+File.separator+"src/test/resources/response/"+filename+".rs");
-        String content="";
+        File file = new File(System.getProperty("user.dir") + File.separator + "src/test/resources/response/" + filename + ".rs");
+        String content = "";
         try {
             content = FileUtils.readFileToString(file, Charset.forName("UTF-8"));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return content;

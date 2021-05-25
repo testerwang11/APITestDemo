@@ -14,8 +14,10 @@ import static org.testng.Assert.assertTrue;
 public class IRoleAclPublicService extends BaseService {
 
     private BaseCall call;
+    private String host;
 
     public IRoleAclPublicService(String host) {
+        this.host = host;
         super.host = host;
     }
 
@@ -26,6 +28,7 @@ public class IRoleAclPublicService extends BaseService {
      * @return
      */
     public JSONObject existsSpecifyUserActionRights(AuthType authType, String body) {
+        System.out.println("地址:"+super.host);
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IRoleAclPublicService/ExistsSpecifyUserActionRights";
         call = new BaseCall(host, uri, MethodType.Post);
         setAuth(call, authType);
