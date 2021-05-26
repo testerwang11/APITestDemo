@@ -1,7 +1,5 @@
 package com.autotest;
 
-import com.alibaba.fastjson.JSONObject;
-import com.autotest.client.BaseCall;
 import com.autotest.services.mysoft.INavPublicService;
 import com.autotest.services.mysoft.IOrganizationPublicService;
 import com.autotest.services.mysoft.IRoleAclPublicService;
