@@ -6,16 +6,15 @@ import com.autotest.enums.AuthType;
 import com.autotest.enums.DiffType;
 import com.autotest.utils.DiffMethod;
 import com.autotest.utils.FileOper;
-import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-@Story("IRoleAclPublicService")
 public class IRoleAclPublicServiceTest extends BaseTest {
 
     private JSONObject response;
+
     @Test(description = "获取指定用户、是否存在指定的功能权限点(有权限)", groups = {"query", "pub"})
     public void testExistsSpecifyUserActionRights01() {
         response = iRoleAclPublicService.existsSpecifyUserActionRights(AuthType.Appkey, "{  \"functionCode\": \"02200904\",  \"actionCode\": \"01\",  \"userId\": \"8414781F-5A5C-EB11-902C-CB823B2D279F\"}");
