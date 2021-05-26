@@ -17,8 +17,8 @@ public class BaseTest {
     public IStandardRolePublicService iStandardRolePublicService;
 
     @BeforeClass
-    @Parameters({"host", "projectName"})
-    public void beforeSuite(@Optional("http://10.5.6.15:8006") String host, @Optional("接口测试") String projectName) {
+    @Parameters({"host"})
+    public void beforeSuite(@Optional("http://10.5.6.15:8006") String host) {
         System.out.println("before Class");
 
         this.host = host;
