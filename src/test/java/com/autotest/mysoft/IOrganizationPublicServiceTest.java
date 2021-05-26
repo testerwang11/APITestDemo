@@ -21,7 +21,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
 
     String cookies;
 
-    @BeforeTest(enabled = true)
+    @BeforeTest(enabled = false)
     public void beforeTest() {
         call = new BaseCall(host, "/ajax/Mysoft.PubPlatform.Nav.Handlers.LoginHandler/Login", MethodType.Post);
         call.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
