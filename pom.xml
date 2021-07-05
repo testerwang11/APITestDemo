@@ -20,7 +20,7 @@
         <commons.digester3.version>3.2</commons.digester3.version>
         <ant.version>1.9.7</ant.version>
         <json-path.version>2.4.0</json-path.version>
-        <json-smart.version>2.3</json-smart.version>
+        <json-smart.version>2.4.1</json-smart.version>
         <aspectj.version>1.8.10</aspectj.version>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <allure.version>2.13.2</allure.version>
