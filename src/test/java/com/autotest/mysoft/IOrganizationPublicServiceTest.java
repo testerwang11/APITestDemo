@@ -39,7 +39,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
 
     @Test(description = "获取组织下的用户")
     public void testGetUserByOrganization01() {
-        iOrganizationPublicService.getUserByOrganization(AuthType.Appkey, "11b11db4-e907-4f1f-8835-b9daab6e1f23");
+        iOrganizationPublicService.getUserByOrganization(AuthType.AppKey, "11b11db4-e907-4f1f-8835-b9daab6e1f23");
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");

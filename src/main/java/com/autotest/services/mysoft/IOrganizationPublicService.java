@@ -79,7 +79,7 @@ public class IOrganizationPublicService extends BaseService {
         String host = "http://10.5.6.15:8006";//mysql
 
         IOrganizationPublicService iOrganizationPublicService = new IOrganizationPublicService(host);
-        JSONObject response = iOrganizationPublicService.getUserByOrganization(AuthType.Appkey, "{\n" +
+        JSONObject response = iOrganizationPublicService.getUserByOrganization(AuthType.AppKey, "{\n" +
                 "  \"BuCode\": \"\",\n" +
                 "  \"IsRoot\": true\n" +
                 "}");

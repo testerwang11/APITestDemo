@@ -366,8 +366,9 @@ public class CallClient {
      */
     public void sendRequest() throws ClientProtocolException, IOException, SocketTimeoutException {
         requestStartTime = DateUtils.dateTimeNow();
-/*		logToReport("请求地址:" + req.getURI());
-		logToReport("请求参数:" + entityToString(entity));*/
+		logToReport("请求地址:" + req.getURI());
+        logToReport("请求方式:" + req.getMethod());
+        logToReport("请求参数:" + entityToString(entity));
         addAttachment("请求地址", req.getURI().toString());
         addAttachment("请求参数", entityToString(entity));
         long reqStart = System.currentTimeMillis();
@@ -411,7 +412,7 @@ public class CallClient {
         logToReport("响应消耗时间:" + (repStop - reqStop));
 
         if (!responseString.startsWith("<!DOCTYPE html>") || responseString.startsWith("<html>")) {
-            //logToReport("响应报文:" + responseString);
+            logToReport("响应报文:" + responseString);
             addAttachment("响应报文", responseString);
         }
     }

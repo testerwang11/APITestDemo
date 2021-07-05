@@ -1,7 +1,11 @@
 package com.autotest.enums;
 
+import com.sun.javafx.collections.MappingChange;
+
+import java.util.HashMap;
+
 public enum AuthType {
-    Appkey("AppId+AppKey", 1),Cookie("账号密码登录的Cookie", 2), Token("生成的Token", 3), None("不带认证信息", 4);
+    AppKey("AppId+AppKey", 1),Cookie("Cookie", 2), Token("Token", 3), None("noAuth", 4);
 
     // 成员变量
     private String name;
@@ -10,6 +14,21 @@ public enum AuthType {
     private AuthType(String name, int index) {
         this.name = name;
         this.index = index;
+    }
+
+
+    private static final HashMap<String, AuthType> MAP = new HashMap<String, AuthType>();
+
+    static {
+
+        for (AuthType authType : values()) {
+            MAP.put(authType.name, authType);
+        }
+    }
+
+    public static AuthType valueOfName(String name) {
+
+        return MAP.get(name);
     }
 
     // 普通方法
