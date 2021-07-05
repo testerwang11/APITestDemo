@@ -265,8 +265,8 @@ public class DiffMethod {
     }
 
     public static boolean compareResponse(DiffType diffType, Object current, Object expected) {
-        JSONObject expectedJSON = strToJson(expected);
         JSONObject currentJSON = strToJson(current);
+        JSONObject expectedJSON = strToJson(expected);
         switch (diffType.getIndex()) {
             case 1:
                 if (currentJSON.equals(expectedJSON)) {
@@ -281,9 +281,11 @@ public class DiffMethod {
                     return true;
                 } else {
                     ExtentTestNGITestListener.logger("宽松模式比对:结果不一致");
+                    ExtentTestNGITestListener.logger("预期结果:" + expected);
+                    ExtentTestNGITestListener.logger("实际结果:" + current);
+
                     ExtentTestNGITestListener.logger("宽松模式比对:\n" + resultStr);
                     return false;
-
                 }
             case 3:
                 JSONObject result = diffFormatJson(current, expected);
@@ -310,8 +312,8 @@ public class DiffMethod {
         JSONObject currentJSON = strToJson(current);
         //比较响应结果
         if (!FastJsonDiff.compareJson(expectedJSON, currentJSON, null)) {
-            ExtentTestNGITestListener.logger("current = " + current);
-            ExtentTestNGITestListener.logger("expected = " + expected);
+            ExtentTestNGITestListener.logger("当前结果 = " + current);
+            ExtentTestNGITestListener.logger("预期结果 = " + expected);
             return false;
         }
         if (currentJSON.equals(expectedJSON)) {
@@ -331,8 +333,8 @@ public class DiffMethod {
             jsonObject.put("tmp", JSONArray.parseArray(object.toString()));
         }
         return jsonObject;
-
     }
+
 
     public static void main(String[] args) {
 

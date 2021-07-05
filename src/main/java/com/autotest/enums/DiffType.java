@@ -2,7 +2,7 @@ package com.autotest.enums;
 
 public enum DiffType {
 
-    Strict("严格模式", 1), General("宽松模式,忽略响应结果顺序", 2), JsonSchema("jsonschema比较字段，不比较值", 3);
+    Strict("严格模式", 1), General("宽松模式,忽略响应结果顺序,忽略指定字段", 2), JsonSchema("jsonschema比较字段，不比较值", 3);
 
     // 成员变量
     private String name;

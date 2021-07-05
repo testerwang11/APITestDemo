@@ -6,13 +6,9 @@ import com.autotest.enums.AuthType;
 import com.autotest.enums.MethodType;
 
 public class IStandardRolePublicService extends BaseService {
-
     private BaseCall call;
-
-    private String host;
-
     public IStandardRolePublicService(String host) {
-        this.host = host;
+        super.setHost(host);
     }
 
     /**

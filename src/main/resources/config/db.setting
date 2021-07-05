@@ -2,7 +2,7 @@
 #url = jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
 #driver =com.mysql.cj.jdbc.Driver
 #sqlserver
-url = jdbc:sqlserver://10.5.11.110:1433; DatabaseName=master
+url = jdbc:sqlserver://10.5.11.110:1433; DatabaseName=wanghy70_0130ys_test1
 driver =com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 user = sa

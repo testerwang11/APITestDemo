@@ -1,0 +1,1 @@
+[{"HierarchyCode":"zb.001.BU-CB","IsEndCompany":false,"ParentGUID":"6beaecc6-5459-eb11-902c-cb823b2d279f","IsFc":0,"OrderHierarchyCode":"0001.0001.0002","BUName":"成本部","BuFullName":"集团 - 武汉公司 - 成本部","BuCode":"BU-CB","BUGUID":"f0a50bb6-9a5b-eb11-902c-cb823b2d279f","CompanyGUID":"6beaecc6-5459-eb11-902c-cb823b2d279f","BUType":2}]

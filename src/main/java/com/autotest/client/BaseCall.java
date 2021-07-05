@@ -1,7 +1,9 @@
 package com.autotest.client;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.autotest.enums.MethodType;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -120,6 +122,8 @@ public class BaseCall {
 	 * @return
 	 */
 	public JSONObject getReturnJsonObject() {
+		//System.out.println(JSON.toJSONString(client.getResponseString(), SerializerFeature.WriteMapNullValue));
+		//return JSONObject.parseObject(JSON.toJSONString(client.getResponseString(), SerializerFeature.WriteMapNullValue));
 		return JSONObject.parseObject(client.getResponseString());
 
 	}
@@ -130,6 +134,7 @@ public class BaseCall {
 	 * @return
 	 */
 	public JSONArray getReturnJsonArray() {
+		//return JSONArray.parseArray(JSON.toJSONString(client.getResponseString(), SerializerFeature.WriteMapNullValue));
 		return JSONArray.parseArray(client.getResponseString());
 	}
 

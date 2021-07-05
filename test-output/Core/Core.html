@@ -1,0 +1,1099 @@
+<html>
+<head>
+<title>TestNG:  Core</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Core</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/30/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jun 23 11:23:20 CST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (906 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>outside </td>
+</tr><tr>
+<td>Excluded groups:</td><td>alter </td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testCheckUserExistInBu01()'><b>testCheckUserExistInBu01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 查询用户是否存在于相关组织</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testCheckUserExistInBu01(IOrganizationPublicServiceTest.java:131)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace462526099", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace462526099'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testCheckUserExistInBu01(IOrganizationPublicServiceTest.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllMyStandardRoles01()'><b>testGetAllMyStandardRoles01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取所有的标准角色</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllMyStandardRoles01(IOrganizationPublicServiceTest.java:500)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2101249621", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2101249621'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllMyStandardRoles01(IOrganizationPublicServiceTest.java:500)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUser01()'><b>testGetAllOrganizationsTreeByUser01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取当前登录用户有权限的所有组织</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUser01(IOrganizationPublicServiceTest.java:426)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace983595261", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace983595261'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUser01(IOrganizationPublicServiceTest.java:426)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUserAndFilter01()'><b>testGetAllOrganizationsTreeByUserAndFilter01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取当前登录用户有权限的所有组织，可传筛选条件</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUserAndFilter01(IOrganizationPublicServiceTest.java:443)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1825719826", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1825719826'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUserAndFilter01(IOrganizationPublicServiceTest.java:443)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllUsers01()'><b>testGetAllUsers01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取所有用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllUsers01(IOrganizationPublicServiceTest.java:519)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace258535644", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace258535644'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllUsers01(IOrganizationPublicServiceTest.java:519)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAlternativeFunctionByUserGuid01()'><b>testGetAlternativeFunctionByUserGuid01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据用户GUID获取用户备选功能</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAlternativeFunctionByUserGuid01(IOrganizationPublicServiceTest.java:274)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace940857381", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace940857381'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAlternativeFunctionByUserGuid01(IOrganizationPublicServiceTest.java:274)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationById01()'><b>testGetOrganizationById01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取组织</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationById01(IOrganizationPublicServiceTest.java:667)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1351478315", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1351478315'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationById01(IOrganizationPublicServiceTest.java:667)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizations01()'><b>testGetOrganizations01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取所有组织</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizations01(IOrganizationPublicServiceTest.java:538)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace106999035", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace106999035'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizations01(IOrganizationPublicServiceTest.java:538)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationsByFilter01()'><b>testGetOrganizationsByFilter01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据筛选条件获取组织单元</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationsByFilter01(IOrganizationPublicServiceTest.java:224)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1161322357", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1161322357'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationsByFilter01(IOrganizationPublicServiceTest.java:224)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetParamValue01()'><b>testGetParamValue01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取配置类业务参数值</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetParamValue01(IOrganizationPublicServiceTest.java:481)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1865859824", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1865859824'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetParamValue01(IOrganizationPublicServiceTest.java:481)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetReportRightsByUser01()'><b>testGetReportRightsByUser01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取报表权限</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetReportRightsByUser01(IOrganizationPublicServiceTest.java:412)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace993370665", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace993370665'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetReportRightsByUser01(IOrganizationPublicServiceTest.java:412)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetRoleByUser01()'><b>testGetRoleByUser01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据用户id查询对应角色</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetRoleByUser01(IOrganizationPublicServiceTest.java:290)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace131872530", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace131872530'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetRoleByUser01(IOrganizationPublicServiceTest.java:290)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUser01()'><b>testGetUser01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据GUID获取指定用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUser01(IOrganizationPublicServiceTest.java:552)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1096485705", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1096485705'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUser01(IOrganizationPublicServiceTest.java:552)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserActionRightInfos01()'><b>testGetUserActionRightInfos01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取用户的所有权限</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserActionRightInfos01(IOrganizationPublicServiceTest.java:570)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1330247343", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1330247343'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserActionRightInfos01(IOrganizationPublicServiceTest.java:570)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByAnalyzeGlobalRoleProject01()'><b>testGetUserByAnalyzeGlobalRoleProject01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 解析通用角色获取用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByAnalyzeGlobalRoleProject01(IOrganizationPublicServiceTest.java:730)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace366252104", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace366252104'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByAnalyzeGlobalRoleProject01(IOrganizationPublicServiceTest.java:730)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByOrganization01()'><b>testGetUserByOrganization01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取组织下的用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByOrganization01(IOrganizationPublicServiceTest.java:44)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1342346098", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1342346098'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByOrganization01(IOrganizationPublicServiceTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRoles01()'><b>testGetUserOrgAndRoles01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取用户组织角色根据用户过滤</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRoles01(IOrganizationPublicServiceTest.java:610)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace718571091", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace718571091'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRoles01(IOrganizationPublicServiceTest.java:610)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByBuguid01()'><b>testGetUserOrgAndRolesByBuguid01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取用户组织角色根据组织过滤</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByBuguid01(IOrganizationPublicServiceTest.java:631)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace102174918", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace102174918'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByBuguid01(IOrganizationPublicServiceTest.java:631)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByRolesId01()'><b>testGetUserOrgAndRolesByRolesId01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取用户组织角色根据角色过滤</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByRolesId01(IOrganizationPublicServiceTest.java:653)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2104973502", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2104973502'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByRolesId01(IOrganizationPublicServiceTest.java:653)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserRoleDetailsByRoles01()'><b>testGetUserRoleDetailsByRoles01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取角色下的组织用户列表</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserRoleDetailsByRoles01(IOrganizationPublicServiceTest.java:462)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1753714541", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1753714541'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserRoleDetailsByRoles01(IOrganizationPublicServiceTest.java:462)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsers01()'><b>testGetUsers01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据条件查询用户列表接口</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsers01(IOrganizationPublicServiceTest.java:64)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2144838275", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2144838275'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsers01(IOrganizationPublicServiceTest.java:64)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByBatchCondition01()'><b>testGetUsersByBatchCondition01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据用户名或帐号模糊搜索用户列表接口</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByBatchCondition01(IOrganizationPublicServiceTest.java:340)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace746074699", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace746074699'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByBatchCondition01(IOrganizationPublicServiceTest.java:340)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByIds01()'><b>testGetUsersByIds01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 获取用户集合</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByIds01(IOrganizationPublicServiceTest.java:589)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1267105885", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1267105885'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByIds01(IOrganizationPublicServiceTest.java:589)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByOrganizationRecursive01()'><b>testGetUsersByOrganizationRecursive01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 查询组织下的所有用户(根据组织查组织下的所有用户)</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByOrganizationRecursive01(IOrganizationPublicServiceTest.java:159)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace951031848", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace951031848'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByOrganizationRecursive01(IOrganizationPublicServiceTest.java:159)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersPaging01()'><b>testGetUsersPaging01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据条件查询用户列表分页接口</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersPaging01(IOrganizationPublicServiceTest.java:241)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace873634936", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace873634936'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersPaging01(IOrganizationPublicServiceTest.java:241)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUPersonInCharge01()'><b>testQueryBUPersonInCharge01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 计划系统根据部门ID集合批量获取部门负责人</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUPersonInCharge01(IOrganizationPublicServiceTest.java:206)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1046665075", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1046665075'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUPersonInCharge01(IOrganizationPublicServiceTest.java:206)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUTreeDataListByBUID01()'><b>testQueryBUTreeDataListByBUID01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据组织ID查询所有子集</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUTreeDataListByBUID01(IOrganizationPublicServiceTest.java:395)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1058876963", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1058876963'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUTreeDataListByBUID01(IOrganizationPublicServiceTest.java:395)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryOrganizationByIds01()'><b>testQueryOrganizationByIds01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据一组组织id批量查询组织详情</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryOrganizationByIds01(IOrganizationPublicServiceTest.java:259)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace527829831", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace527829831'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryOrganizationByIds01(IOrganizationPublicServiceTest.java:259)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserByOrganizationRolesProject01()'><b>testQueryUserByOrganizationRolesProject01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 根据组织、角色集合、项目解析用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserByOrganizationRolesProject01(IOrganizationPublicServiceTest.java:372)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1020155847", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1020155847'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserByOrganizationRolesProject01(IOrganizationPublicServiceTest.java:372)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+<tr>
+<td title='com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserCompanyInfoWithBU01()'><b>testQueryUserCompanyInfoWithBU01</b><br>Test class: com.autotest.mysoft.IOrganizationPublicServiceTest<br>Test method: 查询组织下的所有用户</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserCompanyInfoWithBU01(IOrganizationPublicServiceTest.java:111)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace896982466", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace896982466'><pre>java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserCompanyInfoWithBU01(IOrganizationPublicServiceTest.java:111)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at com.autotest.RunCase.main(RunCase.java:57)
+</pre></div></td>
+<td>0</td>
+<td>com.autotest.mysoft.IOrganizationPublicServiceTest@2805c96b</td></tr>
+</table><p>
+</body>
+</html>

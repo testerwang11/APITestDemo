@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Core]">
+  <parameter name="host" value="http://10.5.11.142:8006"/>
+  <listeners>
+    <listener class-name="com.autotest.listeners.ExtentTestNGITestListener"/>
+  </listeners>
+  <test thread-count="5" name="Core(failed)">
+    <groups>
+      <run>
+        <include name="outside"/>
+        <exclude name="alter"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.autotest.mysoft.IOrganizationPublicServiceTest">
+        <methods>
+          <include name="testGetParamValue01"/>
+          <include name="testGetAllUsers01"/>
+          <include name="testGetUserByAnalyzeGlobalRoleProject01"/>
+          <include name="testCheckUserExistInBu01"/>
+          <include name="testGetOrganizationsByFilter01"/>
+          <include name="testGetAllOrganizationsTreeByUserAndFilter01"/>
+          <include name="testGetUser01"/>
+          <include name="testQueryBUPersonInCharge01"/>
+          <include name="testGetUserActionRightInfos01"/>
+          <include name="testQueryOrganizationByIds01"/>
+          <include name="testGetUserOrgAndRoles01"/>
+          <include name="testGetUserRoleDetailsByRoles01"/>
+          <include name="testQueryUserByOrganizationRolesProject01"/>
+          <include name="testGetAllOrganizationsTreeByUser01"/>
+          <include name="testGetReportRightsByUser01"/>
+          <include name="testGetUserOrgAndRolesByRolesId01"/>
+          <include name="testGetOrganizationById01"/>
+          <include name="testGetUsersByOrganizationRecursive01"/>
+          <include name="testGetUsersPaging01"/>
+          <include name="testGetAlternativeFunctionByUserGuid01"/>
+          <include name="testQueryUserCompanyInfoWithBU01"/>
+          <include name="testGetUserOrgAndRolesByBuguid01"/>
+          <include name="testGetAllMyStandardRoles01"/>
+          <include name="testQueryBUTreeDataListByBUID01"/>
+          <include name="testGetUserByOrganization01"/>
+          <include name="testGetOrganizations01"/>
+          <include name="testGetUsers01"/>
+          <include name="testGetUsersByIds01"/>
+          <include name="testGetUsersByBatchCondition01"/>
+          <include name="testGetRoleByUser01"/>
+        </methods>
+      </class> <!-- com.autotest.mysoft.IOrganizationPublicServiceTest -->
+    </classes>
+  </test> <!-- Core(failed) -->
+</suite> <!-- Failed suite [Core] -->

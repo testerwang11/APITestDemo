@@ -10,11 +10,9 @@ import static org.testng.Assert.assertTrue;
 
 public class INavPublicService extends BaseService {
     private BaseCall call;
-    private String host;
 
     public INavPublicService(String host) {
-        this.host = host;
-        super.host = host;
+        super.setHost(host);
     }
 
     /**

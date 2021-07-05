@@ -1,7 +1,7 @@
 package com.autotest.enums;
 
 public enum AuthType {
-    Appkey("AppId+AppKey", 1),Cookie("账号密码登录的Cookie", 2), Token("生成的Token", 3), None("不带认证信息", 4);
+    Appkey("AppId+AppKey", 1), Cookie("账号密码登录的Cookie", 2), Token("生成的Token", 3), None("不带认证信息", 4);
 
     // 成员变量
     private String name;
@@ -21,16 +21,20 @@ public enum AuthType {
         }
         return null;
     }
+
     // get set 方法
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getIndex() {
         return index;
     }
+
     public void setIndex(int index) {
         this.index = index;
     }

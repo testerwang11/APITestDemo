@@ -14,11 +14,9 @@ import static org.testng.Assert.assertTrue;
 public class IRoleAclPublicService extends BaseService {
 
     private BaseCall call;
-    private String host;
 
     public IRoleAclPublicService(String host) {
-        this.host = host;
-        super.host = host;
+        super.setHost(host);
     }
 
     /**

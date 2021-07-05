@@ -13,7 +13,7 @@ public class INavPublicServiceTest extends BaseTest {
 
     private JSONArray response;
 
-    @Test(description = "获取重构系统导航菜单(管理员)")
+    @Test(description = "获取重构系统导航菜单(管理员)", groups = {"query", "pub", "outside"})
     public void testGetApplicationMenu01() {
         response = iNavPublicService.getApplicationMenu(AuthType.Cookie, "4230BC6E-69E6-46A9-A39E-B929A06A84E8", "admin");
         assertEquals(response.size() > 0, true);

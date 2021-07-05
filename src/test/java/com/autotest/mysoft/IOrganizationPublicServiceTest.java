@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.autotest.BaseTest;
 import com.autotest.client.BaseCall;
 import com.autotest.enums.AuthType;
+import com.autotest.enums.DiffType;
 import com.autotest.enums.MethodType;
 import com.autotest.utils.DiffMethod;
 import com.autotest.utils.FileOper;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -26,7 +28,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         call = new BaseCall(host, "/ajax/Mysoft.PubPlatform.Nav.Handlers.LoginHandler/Login", MethodType.Post);
         call.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         call.addHeader("_TestMock", "1");
-        call.setData("u=zj01&p=np3D8xDaPR54K1%2BvxlvB6RoOHZhGwdOY5y0LBSThB2DiVqINdbkM%2BJAgScExgDdlxSDycKe8j4TSa64SylLD8ajVfvk4K0B7Pve%2BYJRX7dbv43PI%2FUMvdpEf1Tn5G5ILCzJkBw8fvZNOazcBgKieKU0Se%2BbPQCzNalt9TzPQGzs%3D&c=&r=true&returnUrl=%2F&directSite=&screenRate=1920*1080");
+        call.setData("u=admin&p=np3D8xDaPR54K1%2BvxlvB6RoOHZhGwdOY5y0LBSThB2DiVqINdbkM%2BJAgScExgDdlxSDycKe8j4TSa64SylLD8ajVfvk4K0B7Pve%2BYJRX7dbv43PI%2FUMvdpEf1Tn5G5ILCzJkBw8fvZNOazcBgKieKU0Se%2BbPQCzNalt9TzPQGzs%3D&c=&r=true&returnUrl=%2F&directSite=&screenRate=1920*1080");
         call.callService();
         cookies = call.getCookies().get(0).split(";")[0].split("=")[1];
 
@@ -37,18 +39,16 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         cookies = call2.getCookies().get(0);
     }
 
-    @Test(description = "获取组织下的用户")
+    @Test(description = "获取组织下的用户", groups = {"pub", "outside", "query"})
     public void testGetUserByOrganization01() {
-        iOrganizationPublicService.getUserByOrganization(AuthType.Appkey, "11b11db4-e907-4f1f-8835-b9daab6e1f23");
-        call.callService();
-        response = call.getReturnJsonObject();
+        response = iOrganizationPublicService.getUserByOrganization(AuthType.Appkey, "6BEAECC6-5459-EB11-902C-CB823B2D279F");
         assertEquals(response.getString("success"), "true");
         FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
         Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据条件查询用户列表接口")
+    @Test(description = "根据条件查询用户列表接口", groups = {"pub", "outside"})
     public void testGetUsers01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUsers";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -67,7 +67,26 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "查询组织下的所有用户")
+    @Test(description = "根据条件查询用户列表接口(非管理员)")
+    public void testGetUsers02() {
+        String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUsers";
+        call = new BaseCall(host, uri, MethodType.Post);
+        call.addHeader("AppId", AppId);
+        call.addHeader("AppKey", AppKey);
+        call.addHeader("Content-Type", "application/json");
+        call.setData("{\n" +
+                "  \"Keyword\": \"\",\n" +
+                "  \"IsAdmin\": false\n" +
+                "}");
+        call.callService();
+        response = call.getReturnJsonObject();
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "查询组织下的所有用户", groups = {"pub", "outside"})
     public void testQueryUserCompanyInfoWithBU01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/QueryUserCompanyInfoWithBU";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -95,7 +114,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "查询用户是否存在于相关组织")
+    @Test(description = "查询用户是否存在于相关组织", groups = {"pub", "outside"})
     public void testCheckUserExistInBu01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/CheckUserExistInBu";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -115,7 +134,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "查询组织下的所有用户(根据组织查组织下的所有用户)")
+    @Test(description = "查询组织下的所有用户(根据组织查组织下的所有用户)", groups = {"pub", "outside"})
     public void testGetUsersByOrganizationRecursive01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/GetUsersByOrganizationRecursive";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -126,7 +145,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
                 "  \"UserName\": \"\",\n" +
                 "  \"UserCode\": \"\",\n" +
                 "  \"HierarchyCode\": \"zb\",\n" +
-                "  \"BUGUID\": \"\",\n" +
+                "  \"BUGUID\": \"11B11DB4-E907-4F1F-8835-B9DAAB6E1F23\",\n" +
                 "  \"ArrIsDisabled\": [\n" +
                 "    0\n" +
                 "  ],\n" +
@@ -143,7 +162,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "查询组织下的所有用户(根据组织查组织下的所有用户)")
+    @Test(description = "查询组织下的所有用户(根据组织查组织下的所有用户)", groups = {"pub", "outsid"})
     public void testQueryUserCompanyInfoWithBUCount01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/QueryUserCompanyInfoWithBUCount";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -172,7 +191,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
 
-    @Test(description = "计划系统根据部门ID集合批量获取部门负责人\n")
+    @Test(description = "计划系统根据部门ID集合批量获取部门负责人", groups = {"pub", "outside"})
     public void testQueryBUPersonInCharge01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/QueryBUPersonInCharge";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -190,7 +209,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据筛选条件获取组织单元")
+    @Test(description = "根据筛选条件获取组织单元", groups = {"pub", "outside"})
     public void testGetOrganizationsByFilter01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetOrganizationsByFilter";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -209,7 +228,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
     //todo 返回无数据
-    @Test(description = "根据条件查询用户列表分页接口")
+    @Test(description = "根据条件查询用户列表分页接口", groups = {"pub", "outside"})
     public void testGetUsersPaging01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUsersPaging";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -225,7 +244,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据一组组织id批量查询组织详情")
+    @Test(description = "根据一组组织id批量查询组织详情", groups = {"pub", "outside"})
     public void testQueryOrganizationByIds01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/QueryOrganizationByIds";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -243,7 +262,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据用户GUID获取用户备选功能")
+    @Test(description = "根据用户GUID获取用户备选功能", groups = {"pub", "outside"})
     public void testGetAlternativeFunctionByUserGuid01() {
         String uri = "/pub/Mysoft.PubPlatform.Nav.PublicServices.INavPublicService/GetAlternativeFunctionByUserGuid?userGuid=83897767-BB5B-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -258,14 +277,12 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据用户id查询对应角色")
+    @Test(description = "根据用户id查询对应角色", groups = {"pub", "outside"})
     public void testGetRoleByUser01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetRoleByUser?userGuid=83897767-BB5B-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-        //call.addHeader("Content-Type", "application/json");
-        //call.setData("{\"userGuid\":[\"4230BC6E-69E6-46A9-A39E-B929A06A84E8\"]}");
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
@@ -274,7 +291,34 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据用户名或帐号模糊搜索用户列表接口")
+    @Test(description = "根据用户id查询对应角色")
+    public void testGetRolesByUserGuid01() {
+        response2 = iOrganizationPublicService.getRolesByUserGuid(AuthType.Cookie, "83897767-BB5B-EB11-902C-CB823B2D279F");
+        assertEquals(response2.size() > 0, true);
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response2);
+        Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "物理组织获取用户")
+    public void testGetOrganizationUsers01() {
+        response2 = iOrganizationPublicService.getOrganizationUsers(AuthType.Cookie, "\"11b11db4-e907-4f1f-8835-b9daab6e1f23\"");
+        assertEquals(response2.size() > 0, true);
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response2);
+        Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "权限关系获取当前及组织子组织用户信息，权限关系获取")
+    public void testGetRoleUserByOrganization01() {
+        response2 = iOrganizationPublicService.getRoleUserByOrganization(AuthType.Cookie, "\"11b11db4-e907-4f1f-8835-b9daab6e1f23\"");
+        assertEquals(response2.size() > 0, true);
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response2);
+        Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "根据用户名或帐号模糊搜索用户列表接口", groups = {"pub", "outside"})
     public void testGetUsersByBatchCondition01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUsersByBatchCondition";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -282,12 +326,16 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         call.addHeader("AppKey", AppKey);
         call.addHeader("Content-Type", "application/json");
         call.setData("{\n" +
-                "  \"UserNames\": [\n" +
-                "    \"张景秋\"\n" +
-                "  ],\n" +
-                "  \"UserCodes\": [\n" +
-                "    \"\"\n" +
-                "  ]\n" +
+                "    \"UserNames\": [\n" +
+                "        \"工程经理\",\n" +
+                "        \"销售经理\",\n" +
+                "        \"成本经理\"\n" +
+                "    ],\n" +
+                "    \"UserCodes\": [\n" +
+                "        \"gc01\",\n" +
+                "        \"yx01\",\n" +
+                "        \"cb01\"\n" +
+                "    ]\n" +
                 "}");
         call.callService();
         response = call.getReturnJsonObject();
@@ -321,29 +369,22 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
     //todo 无数据
-    @Test(description = "根据组织、角色集合、项目解析用户")
+    @Test(description = "根据组织、角色集合、项目解析用户", groups = {"pub", "outside"})
     public void testQueryUserByOrganizationRolesProject01() {
-        String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/QueryUserByOrganizationRolesProject";
-        call = new BaseCall(host, uri, MethodType.Post);
-        call.addHeader("AppId", AppId);
-        call.addHeader("AppKey", AppKey);
-        call.addHeader("Content-Type", "application/json");
-        call.setData("{\n" +
-                "  \"roleGuids\": [\n" +
-                "    \"243AA589-1360-EB11-902C-CB823B2D279F\"\n" +
-                "  ],\n" +
-                "  \"organizationGuid\": \"6BEAECC6-5459-EB11-902C-CB823B2D279F\",\n" +
-                "  \"projectId\": \"7BF25225-5559-EB11-902C-CB823B2D279F\"\n" +
+        response = iOrganizationPublicService.queryUserByOrganizationRolesProject(AuthType.Appkey, "{\n" +
+                "    \"roleGuids\": [\n" +
+                "        \"243AA589-1360-EB11-902C-CB823B2D279F\"\n" +
+                "    ],\n" +
+                "    \"organizationGuid\": \"6BEAECC6-5459-EB11-902C-CB823B2D279F\",\n" +
+                "    \"projectId\": \"7BF25225-5559-EB11-902C-CB823B2D279F\"\n" +
                 "}");
-        call.callService();
-        response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
         FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
         Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据组织ID查询所有子集")
+    @Test(description = "根据组织ID查询所有子集", groups = {"pub", "outside"})
     public void testQueryBUTreeDataListByBUID01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/QueryBUTreeDataListByBUID?buid=6BEAECC6-5459-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Get);
@@ -360,7 +401,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
     //TODO 测试环境无报表数据
-    @Test(description = "获取报表权限")
+    @Test(description = "获取报表权限", groups = {"pub", "outside"})
     public void testGetReportRightsByUser01() {
         String uri = "/pub/Mysoft.Report.Interface.IReportPublicService/GetReportRightsByUser?userId=8414781F-5A5C-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -376,7 +417,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取当前登录用户有权限的所有组织")
+    @Test(description = "获取当前登录用户有权限的所有组织", groups = {"pub", "outside"})
     public void testGetAllOrganizationsTreeByUser01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetAllOrganizationsTreeByUser";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -390,7 +431,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取当前登录用户有权限的所有组织，可传筛选条件")
+    @Test(description = "获取当前登录用户有权限的所有组织，可传筛选条件", groups = {"pub", "outside"})
     public void testGetAllOrganizationsTreeByUserAndFilter01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetAllOrganizationsTreeByUserAndFilter";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -407,7 +448,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取角色下的组织用户列表")
+    @Test(description = "获取角色下的组织用户列表", groups = {"pub", "outside"})
     public void testGetUserRoleDetailsByRoles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUserRoleDetailsByRoles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -426,7 +467,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取配置类业务参数值")
+    @Test(description = "获取配置类业务参数值", groups = {"pub", "outside"})
     public void testGetParamValue01() {
         String uri = "/pub/Mysoft.PubPlatform.Param.PublicServices.IParamPublicService/GetParamValue";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -445,17 +486,12 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取所有的标准角色")
+    @Test(description = "获取所有的标准角色", groups = {"pub", "outside"})
     public void testGetAllMyStandardRoles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IStandardRolePublicService/GetAllMyStandardRoles?buGuid=F0A50BB6-9A5B-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-        //call.addHeader("Content-Type", "application/json");
- /*       call.setData("{\n" +
-                "  \"paramCode\": \"JobTaskInterval\",\n" +
-                "  \"scopeId\": \"11B11DB4-E907-4F1F-8835-B9DAAB6E1F23\"\n" +
-                "}");*/
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
@@ -464,7 +500,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取所有用户")
+    @Test(description = "获取所有用户", groups = {"pub", "outside"})
     public void testGetAllUsers01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetAllUsers";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -483,17 +519,12 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取所有组织")
+    @Test(description = "获取所有组织", groups = {"pub", "outside"})
     public void testGetOrganizations01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetOrganizations";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-        //call.addHeader("Content-Type", "application/json");
- /*       call.setData("{\n" +
-                "  \"paramCode\": \"JobTaskInterval\",\n" +
-                "  \"scopeId\": \"11B11DB4-E907-4F1F-8835-B9DAAB6E1F23\"\n" +
-                "}");*/
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
@@ -502,17 +533,12 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "根据GUID获取指定用户")
+    @Test(description = "根据GUID获取指定用户", groups = {"pub", "outside"})
     public void testGetUser01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUser?userGuid=83897767-BB5B-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-        //call.addHeader("Content-Type", "application/json");
- /*       call.setData("{\n" +
-                "  \"paramCode\": \"JobTaskInterval\",\n" +
-                "  \"scopeId\": \"11B11DB4-E907-4F1F-8835-B9DAAB6E1F23\"\n" +
-                "}");*/
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
@@ -521,26 +547,25 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-/*    @Test(description = "获取用户的所有权限")
+    @Test(description = "获取用户的所有权限", groups = {"pub", "outside"})
     public void testGetUserActionRightInfos01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IRoleAclPublicService/GetUserActionRightInfos?userId=83897767-BB5B-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-        //call.addHeader("Content-Type", "application/json");
- *//*       call.setData("{\n" +
+        call.setData("{\n" +
                 "  \"paramCode\": \"JobTaskInterval\",\n" +
                 "  \"scopeId\": \"11B11DB4-E907-4F1F-8835-B9DAAB6E1F23\"\n" +
-                "}");*//*
+                "}");
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
         FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
         Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
         assertTrue(diffResponse, "响应结果一致");
-    }*/
+    }
 
-    @Test(description = "获取用户集合")
+    @Test(description = "获取用户集合", groups = {"pub", "outside"})
     public void testGetUsersByIds01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUsersByIds";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -559,7 +584,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取用户组织角色根据用户过滤")
+    @Test(description = "获取用户组织角色根据用户过滤", groups = {"pub", "outside"})
     public void testGetUserOrgAndRoles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/GetUserOrgAndRoles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -580,7 +605,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取用户组织角色根据组织过滤")
+    @Test(description = "获取用户组织角色根据组织过滤", groups = {"pub", "outside"})
     public void testGetUserOrgAndRolesByBuguid01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/GetUserOrgAndRolesByBuguid";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -601,7 +626,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取用户组织角色根据角色过滤")
+    @Test(description = "获取用户组织角色根据角色过滤", groups = {"pub", "outside"})
     public void testGetUserOrgAndRolesByRolesId01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/GetUserOrgAndRolesByRolesId";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -623,20 +648,12 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "获取组织")
+    @Test(description = "获取组织", groups = {"pub", "outside", "query"})
     public void testGetOrganizationById01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetOrganizationById?id=6BEAECC6-5459-EB11-902C-CB823B2D279F";
         call = new BaseCall(host, uri, MethodType.Post);
         call.addHeader("AppId", AppId);
         call.addHeader("AppKey", AppKey);
-/*        call.addHeader("Content-Type", "application/json");
-        call.setData("{\n" +
-                "    \"RolesId\": [\n" +
-                "        \"826853E8-595C-EB11-902C-CB823B2D279F\",\n" +
-                "        \"243AA589-1360-EB11-902C-CB823B2D279F\",\n" +
-                "        \"7296DE29-045B-EB11-902C-CB823B2D279F\"\n" +
-                "    ]\n" +
-                "}");*/
         call.callService();
         response = call.getReturnJsonObject();
         assertEquals(response.getString("success"), "true");
@@ -684,7 +701,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
     //TODO 无数据
-    @Test(description = "解析通用角色获取用户")
+    @Test(description = "解析通用角色获取用户", groups = {"pub", "outside"})
     public void testGetUserByAnalyzeGlobalRoleProject01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/GetUserByAnalyzeGlobalRoleProject";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -709,7 +726,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
     //会修改数据，需还原数据库
-    @Test(description = "批量调整组织归属", priority = 2)
+    @Test(description = "批量调整组织归属", priority = 2, groups = {"pub", "outside", "alter"})
     public void testChangeParent01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/ChangeParent";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -734,7 +751,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "批量新增标准角色功能权限点", priority = 2)
+    @Test(description = "批量新增标准角色功能权限点", priority = 2, groups = {"pub", "outside", "alter"})
     public void testCreateRoleRithts01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IStandardRolePublicService/CreateRoleRithts";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -769,7 +786,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "批量修改组织", priority = 2)
+    @Test(description = "批量修改组织", priority = 2, groups = {"pub", "outside", "alter"})
     public void testUpdate01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/Update";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -796,13 +813,13 @@ public class IOrganizationPublicServiceTest extends BaseTest {
                 "}");
         call.callService();
         response = call.getReturnJsonObject();
-        assertEquals(response.getString("success"), "false");
+        assertEquals(response.getString("success"), "true");
         FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
         Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "批量修改组织(龙湖专用)", priority = 2)
+    @Test(description = "批量修改组织(龙湖专用)", priority = 2, groups = {"pub", "outside", "alter"})
     public void testUpdateLH01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationPublicService/UpdateLH";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -835,7 +852,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "新增用户的项目和角色", priority = 2)
+    @Test(description = "新增用户的项目和角色", priority = 2, groups = {"pub", "outside", "alter"})
     public void testCreateUserProject2Roles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/CreateUserProject2Roles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -861,7 +878,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "移除用户的项目和角色", priority = 2, dependsOnMethods = "testCreateUserProject2Roles01")
+    @Test(description = "移除用户的项目和角色", priority = 2, dependsOnMethods = "testCreateUserProject2Roles01", groups = {"pub", "outside", "alter"})
     public void testDeleteUserProject2Roles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/DeleteUserProject2Roles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -885,7 +902,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "新增用户公司项目权限", priority = 2)
+    @Test(description = "新增用户公司项目权限", priority = 2, groups = {"pub", "outside", "alter"})
     public void testCreateUserBUProjectRights01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/CreateUserBUProjectRights";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -916,7 +933,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "移除用户的项目和角色", priority = 2, dependsOnMethods = "testCreateUserBUProjectRights01")
+    @Test(description = "移除用户的项目和角色", priority = 2, dependsOnMethods = "testCreateUserBUProjectRights01", groups = {"pub", "outside", "alter"})
     public void testDeleteUserBUProjectRights01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/DeleteUserBUProjectRights";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -944,7 +961,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
     }
 
 
-    @Test(description = "新增用户角色关联", priority = 2)
+    @Test(description = "新增用户角色关联", priority = 2, groups = {"pub", "outside", "alter"})
     public void testCreateUser2Roles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/CreateUser2Roles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -977,7 +994,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "移除用户角色关联", priority = 2, dependsOnMethods = "testCreateUser2Roles01")
+    @Test(description = "移除用户角色关联", priority = 2, dependsOnMethods = "testCreateUser2Roles01", groups = {"pub", "outside", "alter"})
     public void testDeleteUser2Roles01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/DeleteUser2Roles";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -1006,7 +1023,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "新增用户项目权限", priority = 2)
+    @Test(description = "新增用户项目权限", priority = 2, groups = {"pub", "outside", "alter"})
     public void testCreateUserProjectRights01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/CreateUserProjectRights";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -1037,7 +1054,7 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         assertTrue(diffResponse, "响应结果一致");
     }
 
-    @Test(description = "移除用户项目权限", priority = 2, dependsOnMethods = "testCreateUserProjectRights01")
+    @Test(description = "移除用户项目权限", priority = 2, dependsOnMethods = "testCreateUserProjectRights01", groups = {"pub", "outside", "alter"})
     public void testDeleteUserProjectRights01() {
         String uri = "/pub/Mysoft.PubPlatform.Organization.PublicServices.IOrganizationUserPublicService/DeleteUserProjectRights";
         call = new BaseCall(host, uri, MethodType.Post);
@@ -1124,4 +1141,125 @@ public class IOrganizationPublicServiceTest extends BaseTest {
         Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
         assertTrue(diffResponse, "响应结果一致");
     }
+
+    @Test(description = "批量创建用户", groups = {"add", "pub"})
+    public void testBatchCreateUser01() {
+        response = iOrganizationPublicService.batchCreate(AuthType.Appkey, "{\n" +
+                "    \"userList\": [\n" +
+                "        {\n" +
+                "            \"id\": \"\",\n" +
+                "            \"code\": \"test111\",\n" +
+                "            \"name\": \"test111\",\n" +
+                "            \"password\": \"1\",\n" +
+                "            \"businessUnitCode\": \"BU-CG\",\n" +
+                "            \"businessUnitId\": \"6BEAECC6-5459-EB11-902C-CB823B2D279F\",\n" +
+                "            \"isAdmin\": false,\n" +
+                "            \"isDisabled\": false,\n" +
+                "            \"kind\": \"1\",\n" +
+                "            \"email\": \"\",\n" +
+                "            \"mobilePhone\": \"17612169056\",\n" +
+                "            \"jobNumber\": \"\",\n" +
+                "            \"adAccount\": \"\",\n" +
+                "            \"comments\": \"备注\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"id\": \"\",\n" +
+                "            \"code\": \"test112\",\n" +
+                "            \"name\": \"test112\",\n" +
+                "            \"password\": \"1\",\n" +
+                "            \"businessUnitCode\": \"BU-CG\",\n" +
+                "            \"businessUnitId\": \"6BEAECC6-5459-EB11-902C-CB823B2D279F\",\n" +
+                "            \"isAdmin\": false,\n" +
+                "            \"isDisabled\": false,\n" +
+                "            \"kind\": \"1\",\n" +
+                "            \"email\": \"\",\n" +
+                "            \"mobilePhone\": \"17612169056\",\n" +
+                "            \"jobNumber\": \"\",\n" +
+                "            \"adAccount\": \"\",\n" +
+                "            \"comments\": \"备注\"\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}");
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "获取当前登录用户有权限的所有组织", groups = {"query", "pub"})
+    public void testgetOrganizationByUser01() {
+        response2 = iOrganizationPublicService.getOrganizationByUser(AuthType.Cookie, "83897767-BB5B-EB11-902C-CB823B2D279F");
+        assertEquals(response2.size() > 0, true);
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response2);
+        Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "根据ID数组获取所有的标准角色", groups = {"query", "pub"})
+    public void testGetAllMyStandardRolesByIds01() {
+        response = iOrganizationPublicService.getAllMyStandardRolesByIds(AuthType.Appkey, "[\n" +
+                "    \"243AA589-1360-EB11-902C-CB823B2D279F\",\n" +
+                "    \"7296DE29-045B-EB11-902C-CB823B2D279F\"\n" +
+                "]");
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(DiffType.General, response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "获取当前登录用户关联的组织以及用户", groups = {"query", "pub"})
+    public void testGetOrganizationAndUser01() {
+        response = iOrganizationPublicService.getOrganizationAndUser(AuthType.Cookie);
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(DiffType.General, response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "通过权限查询组织", groups = {"query", "pub"})
+    public void testGetOrganizationsWithRight01() {
+        response2 = iOrganizationPublicService.getOrganizationsWithRight(AuthType.Cookie);
+        assertEquals(response2.size() > 0, true);
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response2);
+        Boolean diffResponse = DiffMethod.compareResponse(response2, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+    @Test(description = "查询用户有权限的组织下的所有用户的总数", groups = {"query", "pub"})
+    public void testQueryUserRightCompany2UsersCount01() {
+        String body = "{\n" +
+                "  \"CurrentUserGUID\": \"83897767-BB5B-EB11-902C-CB823B2D279F\",\n" +
+                "  \"UserName\": \"\",\n" +
+                "  \"UserCode\": \"\",\n" +
+                "  \"HierarchyCode\": \"\",\n" +
+                "  \"BUGUID\": \"F0A50BB6-9A5B-EB11-902C-CB823B2D279F\",\n" +
+                "  \"ArrIsDisabled\": [\n" +
+                "    0\n" +
+                "  ],\n" +
+                "  \"SortingField\": \"\",\n" +
+                "  \"SortingOrder\": \"\",\n" +
+                "  \"SortingFields\": \"\",\n" +
+                "  \"PageSize\": 20,\n" +
+                "  \"PageIndex\": 0\n" +
+                "}";
+        response = iOrganizationPublicService.queryUserRightCompany2UsersCount(AuthType.Appkey, body);
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(DiffType.General, response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }
+
+/*    @Test(description = "获取用户组织角色", groups = {"query", "pub"})
+    public void testGetUserOrgAndRoles01() {
+        response = iOrganizationPublicService.getUserOrgAndRoles(AuthType.Cookie, "{\n" +
+                "    \"UserGuids\": [\n" +
+                "        \"83897767-BB5B-EB11-902C-CB823B2D279F\",\n" +
+                "        \"FC2CB6ED-BE5B-EB11-902C-CB823B2D279F\"\n" +
+                "    ]\n" +
+                "}");
+        assertEquals(response.getString("success"), "true");
+        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
+        Boolean diffResponse = DiffMethod.compareResponse(DiffType.General, response, FileOper.queryResponse(Thread.currentThread().getStackTrace()[1].getMethodName()));
+        assertTrue(diffResponse, "响应结果一致");
+    }*/
 }

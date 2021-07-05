@@ -14,6 +14,10 @@ public class BaseService {
 
     public String host;
 
+    public void setHost(String host) {
+        this.host = host;
+    }
+
     /**
      * 通过账号密码登录
      * @param username

@@ -1,10 +1,9 @@
 package com.autotest.utils;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
-import org.testng.annotations.Listeners;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -46,6 +45,9 @@ public class FastJsonDiff {
     }
 
     public static void compareJson(Object json1, Object json2, String key) {
+        if(null == json2 ){
+            return;
+        }
         if (ignoreFields.contains(key)) {
             //System.out.println("忽略比较:" + key);
             return;
@@ -106,14 +108,36 @@ public class FastJsonDiff {
         }
     }
 
+    /**
+     * 判断字符串是json
+     * @param str
+     * @return
+     */
+    public static int isJson(String str) {
+        try {
+            JSONObject.parseObject(str);
+            return 1;
+        }catch (JSONException e){
+            //System.out.println(e);
+        }
+        try {
+            JSONArray.parseObject(str);
+            return 2;
+        }catch (JSONException e){
+            //System.out.println(e);
+        }
+        return 3;
+    }
+
+
     private final static String st1 = "{\"username\":\"tom\",\"age\":18,\"address\":[{\"province\":\"上海市\"},{\"city\":\"上海市\"},{\"disrtict\":\"静安区\"}]}";
     private final static String st2 = "{username:\"tom\",age:18}";
 
     public static void main(String[] args) {
-        System.out.println(st1);
+/*        System.out.println(st1);
         JSONObject jsonObject1 = JSONObject.parseObject(st1);
         JSONObject jsonObject2 = JSONObject.parseObject(st2);
-        compareJson(jsonObject1, jsonObject2, null);
+        compareJson(jsonObject1, jsonObject2, null);*/
 
 /*        ClassPathResource resource = new ClassPathResource("config.properties");
         Properties properties = new Properties();
@@ -123,6 +147,5 @@ public class FastJsonDiff {
             e.printStackTrace();
         }
         System.out.println(properties.get("ignore_field"));*/
-
     }
 }

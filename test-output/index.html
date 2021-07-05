@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 30 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Core">
+              <span class="suite-name border-failed">Core</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Core">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Core">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Core">
+                    <span>3 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Core">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Core">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Core">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Core">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">30 methods, 30 failed,   </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Core" class="hide-methods failed suite-Core"> (hide)</a> <!-- hide-methods failed suite-Core -->
+                      <a href="#" panel-name="suite-Core" class="show-methods failed suite-Core"> (show)</a> <!-- show-methods failed suite-Core -->
+                    </span>
+                    <div class="method-list-content failed suite-Core">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testCheckUserExistInBu01">testCheckUserExistInBu01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetAllMyStandardRoles01">testGetAllMyStandardRoles01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetAllOrganizationsTreeByUser01">testGetAllOrganizationsTreeByUser01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetAllOrganizationsTreeByUserAndFilter01">testGetAllOrganizationsTreeByUserAndFilter01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetAllUsers01">testGetAllUsers01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetAlternativeFunctionByUserGuid01">testGetAlternativeFunctionByUserGuid01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetOrganizationById01">testGetOrganizationById01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetOrganizations01">testGetOrganizations01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetOrganizationsByFilter01">testGetOrganizationsByFilter01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetParamValue01">testGetParamValue01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetReportRightsByUser01">testGetReportRightsByUser01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetRoleByUser01">testGetRoleByUser01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUser01">testGetUser01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserActionRightInfos01">testGetUserActionRightInfos01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserByAnalyzeGlobalRoleProject01">testGetUserByAnalyzeGlobalRoleProject01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserByOrganization01">testGetUserByOrganization01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserOrgAndRoles01">testGetUserOrgAndRoles01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserOrgAndRolesByBuguid01">testGetUserOrgAndRolesByBuguid01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserOrgAndRolesByRolesId01">testGetUserOrgAndRolesByRolesId01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUserRoleDetailsByRoles01">testGetUserRoleDetailsByRoles01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUsers01">testGetUsers01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUsersByBatchCondition01">testGetUsersByBatchCondition01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUsersByIds01">testGetUsersByIds01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUsersByOrganizationRecursive01">testGetUsersByOrganizationRecursive01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testGetUsersPaging01">testGetUsersPaging01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testQueryBUPersonInCharge01">testQueryBUPersonInCharge01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testQueryBUTreeDataListByBUID01">testQueryBUTreeDataListByBUID01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testQueryOrganizationByIds01">testQueryOrganizationByIds01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testQueryUserByOrganizationRolesProject01">testQueryUserByOrganizationRolesProject01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Core" title="com.autotest.mysoft.IOrganizationPublicServiceTest" hash-for-method="testQueryUserCompanyInfoWithBU01">testQueryUserCompanyInfoWithBU01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Core -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Core" class="panel Core">
+          <div class="suite-Core-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.autotest.mysoft.IOrganizationPublicServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCheckUserExistInBu01">
+                  </a> <!-- testCheckUserExistInBu01 -->
+                  <span class="method-name">testCheckUserExistInBu01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testCheckUserExistInBu01(IOrganizationPublicServiceTest.java:131)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(查询用户是否存在于相关组织)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAllMyStandardRoles01">
+                  </a> <!-- testGetAllMyStandardRoles01 -->
+                  <span class="method-name">testGetAllMyStandardRoles01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllMyStandardRoles01(IOrganizationPublicServiceTest.java:500)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取所有的标准角色)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAllOrganizationsTreeByUser01">
+                  </a> <!-- testGetAllOrganizationsTreeByUser01 -->
+                  <span class="method-name">testGetAllOrganizationsTreeByUser01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUser01(IOrganizationPublicServiceTest.java:426)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取当前登录用户有权限的所有组织)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAllOrganizationsTreeByUserAndFilter01">
+                  </a> <!-- testGetAllOrganizationsTreeByUserAndFilter01 -->
+                  <span class="method-name">testGetAllOrganizationsTreeByUserAndFilter01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllOrganizationsTreeByUserAndFilter01(IOrganizationPublicServiceTest.java:443)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取当前登录用户有权限的所有组织，可传筛选条件)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAllUsers01">
+                  </a> <!-- testGetAllUsers01 -->
+                  <span class="method-name">testGetAllUsers01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAllUsers01(IOrganizationPublicServiceTest.java:519)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取所有用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAlternativeFunctionByUserGuid01">
+                  </a> <!-- testGetAlternativeFunctionByUserGuid01 -->
+                  <span class="method-name">testGetAlternativeFunctionByUserGuid01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetAlternativeFunctionByUserGuid01(IOrganizationPublicServiceTest.java:274)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据用户GUID获取用户备选功能)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetOrganizationById01">
+                  </a> <!-- testGetOrganizationById01 -->
+                  <span class="method-name">testGetOrganizationById01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationById01(IOrganizationPublicServiceTest.java:667)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取组织)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetOrganizations01">
+                  </a> <!-- testGetOrganizations01 -->
+                  <span class="method-name">testGetOrganizations01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizations01(IOrganizationPublicServiceTest.java:538)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取所有组织)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetOrganizationsByFilter01">
+                  </a> <!-- testGetOrganizationsByFilter01 -->
+                  <span class="method-name">testGetOrganizationsByFilter01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetOrganizationsByFilter01(IOrganizationPublicServiceTest.java:224)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据筛选条件获取组织单元)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetParamValue01">
+                  </a> <!-- testGetParamValue01 -->
+                  <span class="method-name">testGetParamValue01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetParamValue01(IOrganizationPublicServiceTest.java:481)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取配置类业务参数值)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetReportRightsByUser01">
+                  </a> <!-- testGetReportRightsByUser01 -->
+                  <span class="method-name">testGetReportRightsByUser01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetReportRightsByUser01(IOrganizationPublicServiceTest.java:412)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取报表权限)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetRoleByUser01">
+                  </a> <!-- testGetRoleByUser01 -->
+                  <span class="method-name">testGetRoleByUser01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetRoleByUser01(IOrganizationPublicServiceTest.java:290)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据用户id查询对应角色)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUser01">
+                  </a> <!-- testGetUser01 -->
+                  <span class="method-name">testGetUser01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUser01(IOrganizationPublicServiceTest.java:552)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据GUID获取指定用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserActionRightInfos01">
+                  </a> <!-- testGetUserActionRightInfos01 -->
+                  <span class="method-name">testGetUserActionRightInfos01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserActionRightInfos01(IOrganizationPublicServiceTest.java:570)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取用户的所有权限)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserByAnalyzeGlobalRoleProject01">
+                  </a> <!-- testGetUserByAnalyzeGlobalRoleProject01 -->
+                  <span class="method-name">testGetUserByAnalyzeGlobalRoleProject01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByAnalyzeGlobalRoleProject01(IOrganizationPublicServiceTest.java:730)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(解析通用角色获取用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserByOrganization01">
+                  </a> <!-- testGetUserByOrganization01 -->
+                  <span class="method-name">testGetUserByOrganization01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserByOrganization01(IOrganizationPublicServiceTest.java:44)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取组织下的用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserOrgAndRoles01">
+                  </a> <!-- testGetUserOrgAndRoles01 -->
+                  <span class="method-name">testGetUserOrgAndRoles01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRoles01(IOrganizationPublicServiceTest.java:610)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取用户组织角色根据用户过滤)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserOrgAndRolesByBuguid01">
+                  </a> <!-- testGetUserOrgAndRolesByBuguid01 -->
+                  <span class="method-name">testGetUserOrgAndRolesByBuguid01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByBuguid01(IOrganizationPublicServiceTest.java:631)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取用户组织角色根据组织过滤)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserOrgAndRolesByRolesId01">
+                  </a> <!-- testGetUserOrgAndRolesByRolesId01 -->
+                  <span class="method-name">testGetUserOrgAndRolesByRolesId01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserOrgAndRolesByRolesId01(IOrganizationPublicServiceTest.java:653)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取用户组织角色根据角色过滤)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUserRoleDetailsByRoles01">
+                  </a> <!-- testGetUserRoleDetailsByRoles01 -->
+                  <span class="method-name">testGetUserRoleDetailsByRoles01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUserRoleDetailsByRoles01(IOrganizationPublicServiceTest.java:462)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取角色下的组织用户列表)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsers01">
+                  </a> <!-- testGetUsers01 -->
+                  <span class="method-name">testGetUsers01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsers01(IOrganizationPublicServiceTest.java:64)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据条件查询用户列表接口)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsersByBatchCondition01">
+                  </a> <!-- testGetUsersByBatchCondition01 -->
+                  <span class="method-name">testGetUsersByBatchCondition01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByBatchCondition01(IOrganizationPublicServiceTest.java:340)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据用户名或帐号模糊搜索用户列表接口)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsersByIds01">
+                  </a> <!-- testGetUsersByIds01 -->
+                  <span class="method-name">testGetUsersByIds01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByIds01(IOrganizationPublicServiceTest.java:589)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(获取用户集合)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsersByOrganizationRecursive01">
+                  </a> <!-- testGetUsersByOrganizationRecursive01 -->
+                  <span class="method-name">testGetUsersByOrganizationRecursive01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersByOrganizationRecursive01(IOrganizationPublicServiceTest.java:159)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(查询组织下的所有用户(根据组织查组织下的所有用户))                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsersPaging01">
+                  </a> <!-- testGetUsersPaging01 -->
+                  <span class="method-name">testGetUsersPaging01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testGetUsersPaging01(IOrganizationPublicServiceTest.java:241)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据条件查询用户列表分页接口)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryBUPersonInCharge01">
+                  </a> <!-- testQueryBUPersonInCharge01 -->
+                  <span class="method-name">testQueryBUPersonInCharge01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUPersonInCharge01(IOrganizationPublicServiceTest.java:206)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(计划系统根据部门ID集合批量获取部门负责人)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryBUTreeDataListByBUID01">
+                  </a> <!-- testQueryBUTreeDataListByBUID01 -->
+                  <span class="method-name">testQueryBUTreeDataListByBUID01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryBUTreeDataListByBUID01(IOrganizationPublicServiceTest.java:395)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据组织ID查询所有子集)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryOrganizationByIds01">
+                  </a> <!-- testQueryOrganizationByIds01 -->
+                  <span class="method-name">testQueryOrganizationByIds01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryOrganizationByIds01(IOrganizationPublicServiceTest.java:259)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据一组组织id批量查询组织详情)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryUserByOrganizationRolesProject01">
+                  </a> <!-- testQueryUserByOrganizationRolesProject01 -->
+                  <span class="method-name">testQueryUserByOrganizationRolesProject01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserByOrganizationRolesProject01(IOrganizationPublicServiceTest.java:372)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(根据组织、角色集合、项目解析用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryUserCompanyInfoWithBU01">
+                  </a> <!-- testQueryUserCompanyInfoWithBU01 -->
+                  <span class="method-name">testQueryUserCompanyInfoWithBU01</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.autotest.mysoft.IOrganizationPublicServiceTest.testQueryUserCompanyInfoWithBU01(IOrganizationPublicServiceTest.java:111)
+	at com.autotest.RunCase.main(RunCase.java:57)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(查询组织下的所有用户)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Core-class-failed -->
+        </div> <!-- panel Core -->
+        <div panel-name="test-xml-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Core&quot;&gt;
+  &lt;parameter name=&quot;host&quot; value=&quot;http://10.5.11.142:8006&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.autotest.listeners.ExtentTestNGITestListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;groups&gt;
+    &lt;run&gt;
+      &lt;include name=&quot;outside&quot;/&gt;
+      &lt;exclude name=&quot;alter&quot;/&gt;
+    &lt;/run&gt;
+  &lt;/groups&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Core&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.autotest.mysoft.IOrganizationPublicServiceTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Core --&gt;
+&lt;/suite&gt; &lt;!-- Core --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Core</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Core (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Core</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">outside</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testCheckUserExistInBu01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllMyStandardRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllOrganizationsTreeByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllOrganizationsTreeByUserAndFilter01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllUsers01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAlternativeFunctionByUserGuid01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizationById01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizations01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizationsByFilter01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetParamValue01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetReportRightsByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetRoleByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserActionRightInfos01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserByAnalyzeGlobalRoleProject01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserByOrganization01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRolesByBuguid01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRolesByRolesId01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserRoleDetailsByRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsers01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByBatchCondition01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByIds01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByOrganizationRecursive01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersPaging01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryBUPersonInCharge01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryBUTreeDataListByBUID01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryOrganizationByIds01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryUserByOrganizationRolesProject01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryUserCompanyInfoWithBU01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">pub</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testCheckUserExistInBu01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllMyStandardRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllOrganizationsTreeByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllOrganizationsTreeByUserAndFilter01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAllUsers01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetAlternativeFunctionByUserGuid01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizationById01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizations01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizationsByFilter01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetParamValue01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetReportRightsByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetRoleByUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUser01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserActionRightInfos01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserByAnalyzeGlobalRoleProject01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserByOrganization01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRolesByBuguid01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserOrgAndRolesByRolesId01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserRoleDetailsByRoles01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsers01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByBatchCondition01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByIds01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersByOrganizationRecursive01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUsersPaging01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryBUPersonInCharge01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryBUTreeDataListByBUID01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryOrganizationByIds01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryUserByOrganizationRolesProject01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryUserCompanyInfoWithBU01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">query</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetOrganizationById01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testGetUserByOrganization01</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Core</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Core');
+function tableData_Core() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(30);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testCheckUserExistInBu01')
+data.setCell(0, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(0, 3, 567);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testQueryOrganizationByIds01')
+data.setCell(1, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(1, 3, 14);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testGetUserOrgAndRolesByRolesId01')
+data.setCell(2, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(2, 3, 11);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testGetAlternativeFunctionByUserGuid01')
+data.setCell(3, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(3, 3, 11);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testGetUserOrgAndRoles01')
+data.setCell(4, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(4, 3, 9);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testGetUserRoleDetailsByRoles01')
+data.setCell(5, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(5, 3, 8);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testGetUsersByOrganizationRecursive01')
+data.setCell(6, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(6, 3, 7);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testGetUsers01')
+data.setCell(7, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(7, 3, 7);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testGetUserActionRightInfos01')
+data.setCell(8, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(8, 3, 7);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testGetUserOrgAndRolesByBuguid01')
+data.setCell(9, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(9, 3, 6);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testQueryBUPersonInCharge01')
+data.setCell(10, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(10, 3, 6);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testGetAllMyStandardRoles01')
+data.setCell(11, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(11, 3, 6);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testGetUsersByBatchCondition01')
+data.setCell(12, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(12, 3, 6);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testQueryBUTreeDataListByBUID01')
+data.setCell(13, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(13, 3, 6);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testGetAllOrganizationsTreeByUserAndFilter01')
+data.setCell(14, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(14, 3, 5);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testGetOrganizationsByFilter01')
+data.setCell(15, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(15, 3, 5);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testGetUser01')
+data.setCell(16, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(16, 3, 5);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testGetUsersByIds01')
+data.setCell(17, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(17, 3, 5);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testGetReportRightsByUser01')
+data.setCell(18, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(18, 3, 5);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testGetUserByAnalyzeGlobalRoleProject01')
+data.setCell(19, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(19, 3, 5);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testGetAllOrganizationsTreeByUser01')
+data.setCell(20, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(20, 3, 5);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testGetOrganizationById01')
+data.setCell(21, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(21, 3, 5);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testGetUsersPaging01')
+data.setCell(22, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(22, 3, 5);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testGetAllUsers01')
+data.setCell(23, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(23, 3, 5);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'testQueryUserCompanyInfoWithBU01')
+data.setCell(24, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(24, 3, 5);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'testGetParamValue01')
+data.setCell(25, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(25, 3, 4);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'testGetRoleByUser01')
+data.setCell(26, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(26, 3, 4);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'testGetOrganizations01')
+data.setCell(27, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(27, 3, 4);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'testGetUserByOrganization01')
+data.setCell(28, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(28, 3, 3);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'testQueryUserByOrganizationRolesProject01')
+data.setCell(29, 2, 'com.autotest.mysoft.IOrganizationPublicServiceTest')
+data.setCell(29, 3, 2);
+window.suiteTableData['Core']= { tableData: data, tableDiv: 'times-div-Core'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 743 ms</span>
+              <div id="times-div-Core">
+              </div> <!-- times-div-Core -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Core</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">31 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.autotest.mysoft.IOrganizationPublicServiceTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testUpdateLH01</span>
+                <br/>
+                <span class="ignored-method-name">testQueryUserRightCompany2UsersCount01</span>
+                <br/>
+                <span class="ignored-method-name">testGetUsers02</span>
+                <br/>
+                <span class="ignored-method-name">testChangeParent01</span>
+                <br/>
+                <span class="ignored-method-name">testgetOrganizationByUser01</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganizationAndUser01</span>
+                <br/>
+                <span class="ignored-method-name">testBatchCreateUser01</span>
+                <br/>
+                <span class="ignored-method-name">testQueryUserCompanyInfoWithBUCount01</span>
+                <br/>
+                <span class="ignored-method-name">testDeleteUserProjectRights01</span>
+                <br/>
+                <span class="ignored-method-name">testCreateUserBUProjectRights01</span>
+                <br/>
+                <span class="ignored-method-name">testDeleteUser2Roles01</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganizationUsers01</span>
+                <br/>
+                <span class="ignored-method-name">testCreateUserProject2Roles01</span>
+                <br/>
+                <span class="ignored-method-name">testUpdate01</span>
+                <br/>
+                <span class="ignored-method-name">testGetRoleUserByOrganization01</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganizationsWithRight01</span>
+                <br/>
+                <span class="ignored-method-name">testGetRolesByUserGuid01</span>
+                <br/>
+                <span class="ignored-method-name">testDeleteUserProject2Roles01</span>
+                <br/>
+                <span class="ignored-method-name">testGetAllHasRoleUsers01</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganization02</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganization01</span>
+                <br/>
+                <span class="ignored-method-name">testGetOrganizationsAndRole01</span>
+                <br/>
+                <span class="ignored-method-name">testDeleteUserBUProjectRights01</span>
+                <br/>
+                <span class="ignored-method-name">testCreateUserProjectRights01</span>
+                <br/>
+                <span class="ignored-method-name">testApplyBUProjectRightsByUserIds01</span>
+                <br/>
+                <span class="ignored-method-name">testCreateUser2Roles01</span>
+                <br/>
+                <span class="ignored-method-name">testCreateRoleRithts01</span>
+                <br/>
+                <span class="ignored-method-name">testGetAllMyStandardRolesByIds01</span>
+                <br/>
+                <span class="ignored-method-name">testQueryBUTreeDataList01</span>
+                <br/>
+                <span class="ignored-method-name">testGetUsersByBatchCondition02</span>
+                <br/>
+                <span class="ignored-method-name">testListFullBUTree01</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Core" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.autotest.mysoft.IOrganizationPublicServiceTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCheckUserExistInBu01</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetAllMyStandardRoles01</span>
+                <span class="method-start">625 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetAllOrganizationsTreeByUser01</span>
+                <span class="method-start">633 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetAllOrganizationsTreeByUserAndFilter01</span>
+                <span class="method-start">640 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetAllUsers01</span>
+                <span class="method-start">647 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetAlternativeFunctionByUserGuid01</span>
+                <span class="method-start">656 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetOrganizationById01</span>
+                <span class="method-start">674 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetOrganizations01</span>
+                <span class="method-start">681 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetOrganizationsByFilter01</span>
+                <span class="method-start">687 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetParamValue01</span>
+                <span class="method-start">694 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetReportRightsByUser01</span>
+                <span class="method-start">701 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetRoleByUser01</span>
+                <span class="method-start">708 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUser01</span>
+                <span class="method-start">713 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserActionRightInfos01</span>
+                <span class="method-start">720 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserByAnalyzeGlobalRoleProject01</span>
+                <span class="method-start">730 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserByOrganization01</span>
+                <span class="method-start">739 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserOrgAndRoles01</span>
+                <span class="method-start">750 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserOrgAndRolesByBuguid01</span>
+                <span class="method-start">762 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserOrgAndRolesByRolesId01</span>
+                <span class="method-start">770 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUserRoleDetailsByRoles01</span>
+                <span class="method-start">783 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUsers01</span>
+                <span class="method-start">793 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUsersByBatchCondition01</span>
+                <span class="method-start">802 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUsersByIds01</span>
+                <span class="method-start">812 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUsersByOrganizationRecursive01</span>
+                <span class="method-start">819 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetUsersPaging01</span>
+                <span class="method-start">828 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQueryBUPersonInCharge01</span>
+                <span class="method-start">835 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQueryBUTreeDataListByBUID01</span>
+                <span class="method-start">843 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQueryOrganizationByIds01</span>
+                <span class="method-start">851 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQueryUserByOrganizationRolesProject01</span>
+                <span class="method-start">867 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testQueryUserCompanyInfoWithBU01</span>
+                <span class="method-start">871 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
