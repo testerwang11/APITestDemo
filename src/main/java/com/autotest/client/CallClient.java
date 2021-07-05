@@ -1,6 +1,5 @@
 package com.autotest.client;
 
-import com.autotest.listeners.ExtentTestNGITestListener;
 import com.autotest.utils.DateUtils;
 import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
@@ -367,7 +366,8 @@ public class CallClient {
      */
     public void sendRequest() throws ClientProtocolException, IOException, SocketTimeoutException {
         requestStartTime = DateUtils.dateTimeNow();
-        logToReport("请求地址:" + req.getURI());
+		logToReport("请求地址:" + req.getURI());
+        logToReport("请求方式:" + req.getMethod());
         logToReport("请求参数:" + entityToString(entity));
         addAttachment("请求地址", req.getURI().toString());
         addAttachment("请求参数", entityToString(entity));
@@ -408,13 +408,12 @@ public class CallClient {
         //logToReport("请求开始时间:" + requestStartTime);
         //logToReport("请求结束时间:" + requestStopTime);
 
-        logToReport("消耗时间:" + (repStop - reqStart) + "秒");
-        addAttachment("响应消耗时间:", (repStop - reqStart) + "毫秒");
+        logToReport("请求消耗时间:" + (reqStop - reqStart));
+        logToReport("响应消耗时间:" + (repStop - reqStop));
 
         if (!responseString.startsWith("<!DOCTYPE html>") || responseString.startsWith("<html>")) {
             logToReport("响应报文:" + responseString);
             addAttachment("响应报文", responseString);
-
         }
     }
 
@@ -641,17 +640,14 @@ public class CallClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return Cookies;
     }
 
     public void logToReport(String message) {
         System.out.println(message);
         //log.info(message);
-        try{
-            //ExtentTestNGITestListener.logger(message);
-        }catch (Exception e){
-
-        }
+        //ExtentTestNGITestListener.logger(message);
     }
 
     public static void main(String[] args) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {

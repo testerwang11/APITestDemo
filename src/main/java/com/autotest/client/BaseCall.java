@@ -64,6 +64,14 @@ public class BaseCall {
 		}
 	}
 
+	public BaseCall(String systemUrl, MethodType mode) {
+		this.mode = mode.name();
+		this.url = systemUrl;
+		if (client == null) {
+			client = new CallClient(url, this.mode);
+		}
+	}
+
 	/**
 	 * 设置参数 请求String
 	 * 

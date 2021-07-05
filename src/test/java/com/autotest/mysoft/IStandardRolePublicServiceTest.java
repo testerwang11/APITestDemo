@@ -17,7 +17,7 @@ public class IStandardRolePublicServiceTest extends BaseTest {
 
     @Test(description = "根据ID数组获取所有的标准角色", groups = {"query", "pub"})
     public void testGetUserOrgAndRoles01() {
-        response = iStandardRolePublicService.getUserOrgAndRoles(AuthType.Appkey, "[\"243AA589-1360-EB11-902C-CB823B2D279F\"]");
+        response = iStandardRolePublicService.getUserOrgAndRoles(AuthType.AppKey, "[\"243AA589-1360-EB11-902C-CB823B2D279F\"]");
         assertEquals(response.getString("success"), "true");
         //返回结果全匹配
 /*        FileOper.saveResponse(Thread.currentThread().getStackTrace()[1].getMethodName(), response);
