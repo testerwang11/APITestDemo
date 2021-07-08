@@ -1,5 +1,6 @@
 package com.autotest.utils.excel;
 
+import cn.hutool.core.net.URLEncoder;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.autotest.client.BaseCall;
@@ -7,10 +8,12 @@ import com.autotest.database.model.ApiCaseEntity;
 import com.autotest.enums.AuthType;
 import com.autotest.enums.MethodType;
 import com.autotest.utils.DiffMethod;
+import com.autotest.utils.RSAUtil;
 import com.autotest.utils.StringUtils;
 import com.github.crab2died.ExcelUtils;
 import org.testng.Assert;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,14 +23,14 @@ public class ExcelUtilsDemo {
 
     public static String AppId = "Mysoft";//测试环境key
 
-    public static String AppKey = "77c1cdd7d4e45d40";//测试环境秘钥
+    public static String AppKey = "ff483a6526ddf275";//测试环境秘钥
 
     public static String host;
 
 
     public static LinkedList<ApiCaseEntity> excel2Object2() {
 
-        String path = "D:\\study\\接口自动化测试demo.xlsx";
+        String path = "E:\\temp\\接口自动化测试demo.xlsx";
         try {
             List<String> sheetNames = ExcelUtil.getReader(path).getSheetNames();
 
@@ -64,16 +67,20 @@ public class ExcelUtilsDemo {
         BaseCall call = new BaseCall(host, "/ajax/Mysoft.PubPlatform.Nav.Handlers.LoginHandler/Login", MethodType.Post);
         call.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         call.addHeader("_TestMock", "1");
-        String body = "u=" + username + "&p=np3D8xDaPR54K1%2BvxlvB6RoOHZhGwdOY5y0LBSThB2DiVqINdbkM%2BJAgScExgDdlxSDycKe8j4TSa64SylLD8ajVfvk4K0B7Pve%2BYJRX7dbv43PI%2FUMvdpEf1Tn5G5ILCzJkBw8fvZNOazcBgKieKU0Se%2BbPQCzNalt9TzPQGzs%3D&c=&r=true&returnUrl=%2F&directSite=&screenRate=1920*1080";
+        String body = "u=" + username + "&p=" + new URLEncoder().encode(RSAUtil.encryptionByPublicKey(passwd), Charset.defaultCharset()) + "&c=&r=true&returnUrl=%2F&directSite=&screenRate=1920*1080";
         call.setData(body);
         call.callService();
-        String cookies = call.getCookies().get(0).split(";")[0].split("=")[1];
+        //String cookies = call.getCookies().get(0).split(";")[0].split("=")[1];
+        String cookies = call.getCookies().get(0).split(";")[0];
 
+        System.out.println(call.getCookies());
+        System.out.println(cookies);
         BaseCall call2 = new BaseCall(host, call.getReturnJsonObject().getString("data"), MethodType.Get);
-        call2.addHeader("Cookie", "userToken=" + cookies);
+        call2.addHeader("Cookie", cookies);
 
         call2.callService();
         cookies = call2.getCookies().get(0);
+        System.out.println(cookies);
         return cookies;
     }
 
@@ -116,8 +123,10 @@ public class ExcelUtilsDemo {
             call = new BaseCall(host, apiCaseEntity.getReqUrl(), apiCaseEntity.getMethodType());
         }
         setAuth(call, AuthType.valueOfName(apiCaseEntity.getAuthType()));
-        if(DiffMethod.isJsonObject(apiCaseEntity.getReqBody()) || DiffMethod.isJsonArray(apiCaseEntity.getReqBody())){
-            call.addHeader("Content-Type", "application/json");
+        if (apiCaseEntity.getContentType().contains("json")) {
+            call.addHeader("Content-Type", "application/json; charset=UTF-8");
+        } else {
+            call.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         }
         if (!StringUtils.isEmpty(apiCaseEntity.getReqBody())) {
             call.setData(apiCaseEntity.getReqBody());
@@ -132,6 +141,7 @@ public class ExcelUtilsDemo {
         if (call.getStatusCode() == apiCaseEntity.getResponseCode()) {
             checkResult.setStatusCode(true);
         } else {
+            checkResult.setStatusCode(false);
             faileMsgs.add(String.format("响应Code检查,预期结果:%d,实际结果:%d", apiCaseEntity.getResponseCode(), call.getStatusCode()));
         }
         //断言响应结果

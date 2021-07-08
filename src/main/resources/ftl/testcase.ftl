@@ -14,31 +14,32 @@ import com.autotest.enums.MethodType;
 */
 public class ${className} {
 
-    private String hostFW = "${hostFW}";
-    private String hostCore = "${hostCore}";
+    private String hostFW = "${hostFW}", hostCore = "${hostCore}";
+    private ExcelUtilsDemo excelUtilsDemo = new ExcelUtilsDemo();
 
 
 <#assign id= 1 />
 <#list apis as api>
     @Feature("${api.suitName}")
     <#if api.enable>
-    @Test(description = "${api.description!}", priority = ${id})
+    @Test(description = "${api.platformType!} ${api.name!}", priority = ${id})
     <#else>
-    @Test(description = "${api.description!}", priority = ${id}, enabled = false)
+    @Test(description = "${api.platformType!} ${api.name!}", priority = ${id}, enabled = false)
     </#if>
     public void tc_${id}() {
         ApiCaseEntity apiCaseEntity = new ApiCaseEntity();
         apiCaseEntity.setReqUrl("${api.reqUrl}");
         apiCaseEntity.setAuthType("${api.authType}");
         apiCaseEntity.setMethodType(EnumUtils.getEnum(MethodType.class, "${api.methodType}"));
+        apiCaseEntity.setContentType("${api.contentType!}");
         apiCaseEntity.setReqBody("${api.reqBody!}");
-        apiCaseEntity.setResponse("${api.response}");
+        apiCaseEntity.setResponse("${api.response!}");
         apiCaseEntity.setResponseCode(${api.responseCode?number});
-        apiCaseEntity.setAssertType("${api.assertType}");
+        apiCaseEntity.setAssertType("${api.assertType!}");
         <#if api.platformType == "Framework">
-            ExcelUtilsDemo.checkCaseStatus(ExcelUtilsDemo.excute(apiCaseEntity, hostFW));
+            excelUtilsDemo.checkCaseStatus(excelUtilsDemo.excute(apiCaseEntity, hostFW));
         <#else >
-            ExcelUtilsDemo.checkCaseStatus(ExcelUtilsDemo.excute(apiCaseEntity, hostCore));
+            excelUtilsDemo.checkCaseStatus(excelUtilsDemo.excute(apiCaseEntity, hostCore));
         </#if>
     }
     <#assign id = id + 1 />

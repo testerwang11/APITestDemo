@@ -5,7 +5,7 @@ import com.sun.javafx.collections.MappingChange;
 import java.util.HashMap;
 
 public enum AuthType {
-    AppKey("AppId+AppKey", 1),Cookie("Cookie", 2), Token("Token", 3), None("noAuth", 4);
+    AppKey("AppId+AppKey", 1),Cookie("Cookie", 2), Token("Token", 3), None("None", 4);
 
     // 成员变量
     private String name;

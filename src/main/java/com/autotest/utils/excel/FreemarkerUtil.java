@@ -29,7 +29,7 @@ public class FreemarkerUtil {
         root.put("className", className);
         root.put("apis", caseDatas);
         root.put("hostFW", hostFW);
-        root.put("hostCore", hostFW);
+        root.put("hostCore", hostCore);
 
         //root.put("url", api.getHost().split("\\?")[0]);
         //root.put("methodPath", api.getMethodPath());
@@ -78,7 +78,7 @@ public class FreemarkerUtil {
     }
 
     public static void main(String[] args) throws IOException, TemplateException {
-        String host_fw = "http://10.5.6.15:8001";
+        String host_fw = "http://10.5.6.14:8001";
         String host_core = "http://10.5.11.142:8007";
         LinkedList<ApiCaseEntity> datas = ExcelUtilsDemo.excel2Object2();
         genClass(datas, host_fw, host_core);

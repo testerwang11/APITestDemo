@@ -17,7 +17,7 @@ public class DemoTest {
     public void test111() {
         RequestEntity requestEntity = new RequestEntity();
         requestEntity.setUri("/pub/Mysoft.PubPlatform.Message.Interfaces.ISendMessagePublicService/QueryTaskWakeHistoryList");
-        requestEntity.setAuthType(AuthType.Appkey);
+        requestEntity.setAuthType(AuthType.AppKey);
         requestEntity.setMethod(MethodType.Post.getName());
         requestEntity.setBody("{\n" +
                 "  \"wakeMode\": 2,\n" +

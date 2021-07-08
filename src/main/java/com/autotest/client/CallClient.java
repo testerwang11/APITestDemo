@@ -402,7 +402,7 @@ public class CallClient {
         long repStop = System.currentTimeMillis();
         responseStopTime = DateUtils.formatDate(DateUtils.YYYYMMDDHHMMSSS, repStop);
         duration = repStop - reqStart;
-        //logToReport("响应状态:"+resp.getStatusLine().getStatusCode());
+        logToReport("响应状态:"+resp.getStatusLine().getStatusCode());
         addAttachment("响应状态", resp.getStatusLine().getStatusCode() + "");
 
         //logToReport("请求开始时间:" + requestStartTime);

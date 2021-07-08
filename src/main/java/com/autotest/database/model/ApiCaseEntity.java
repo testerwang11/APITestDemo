@@ -2,10 +2,7 @@ package com.autotest.database.model;
 
 import com.autotest.enums.AuthType;
 import com.autotest.enums.MethodType;
-import com.autotest.utils.excel.AuthoTypeConvert;
-import com.autotest.utils.excel.BodyTypeConvert;
-import com.autotest.utils.excel.CaseStatusConvert;
-import com.autotest.utils.excel.MethodTypeConvert;
+import com.autotest.utils.excel.*;
 import com.github.crab2died.annotation.ExcelField;
 import lombok.Data;
 
@@ -32,6 +29,9 @@ public class ApiCaseEntity {
 
     @ExcelField(title = "请求参数", order = 6, readConverter = BodyTypeConvert.class)
     private String reqBody;
+
+    @ExcelField(title = "请求格式", readConverter = ContentTypeConvert.class)
+    private String contentType;
 
     @ExcelField(title = "响应状态", order = 7)
     private int responseCode;
