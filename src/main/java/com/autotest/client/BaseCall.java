@@ -57,6 +57,7 @@ public class BaseCall {
 	 *            GET or POST or FILE or Delete or Put
 	 */
 	public BaseCall(String systemUrl, String uri, MethodType mode) {
+		System.out.println("systemUrl = " + systemUrl + ", uri = " + uri + ", mode = " + mode);
 		this.mode = mode.name();
 		this.url = systemUrl + uri;
 		if (client == null) {

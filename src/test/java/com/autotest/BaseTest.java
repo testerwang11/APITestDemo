@@ -11,10 +11,9 @@ public class BaseTest {
     //public String host = "http://10.5.6.15:8007";
     //public String host = "http://10.5.6.15:8006";
     //public String host = "http://10.5.6.14:8001";
-    public String host = "http://10.5.11.142:8006";
+    //public String host = "http://10.5.11.142:8006";
     //public String host = "http://10.5.11.172:9002";
-
-
+    public String host;
 
 
     public String AppId = "Mysoft";
@@ -25,12 +24,11 @@ public class BaseTest {
     public IRoleAclPublicService iRoleAclPublicService;
     public INavPublicService iNavPublicService;
     public IStandardRolePublicService iStandardRolePublicService;
-    //http://10.5.6.15:8007/
-    @BeforeClass
+
+    @BeforeTest
     @Parameters({"host"})
     public void beforeSuite(@Optional("http://10.5.6.15:8007") String host) {
-        System.out.println("before Class");
-        //this.host = host;
+        this.host = host;
         iOrganizationPublicService = new IOrganizationPublicService(host);
         iRoleAclPublicService = new IRoleAclPublicService(host);
         iNavPublicService = new INavPublicService(host);

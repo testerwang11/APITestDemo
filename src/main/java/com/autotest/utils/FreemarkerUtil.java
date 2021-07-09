@@ -1,10 +1,12 @@
-package com.autotest.utils.excel;
+package com.autotest.utils;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.autotest.database.model.ApiCaseEntity;
+import com.autotest.utils.excel.ExcelUtilsDemo;
+import com.autotest.utils.excel.ReadApiCaseUtil;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -30,12 +32,6 @@ public class FreemarkerUtil {
         root.put("apis", caseDatas);
         root.put("hostFW", hostFW);
         root.put("hostCore", hostCore);
-
-        //root.put("url", api.getHost().split("\\?")[0]);
-        //root.put("methodPath", api.getMethodPath());
-        //root.put("version", api.getVersion());
-        //root.put("reqestParameters", api.getRequestParameters());
-
         File packagePath = new File(rootDir + "/src/test/java/com/autotest/temp/");
         if (!packagePath.exists()) {
             packagePath.mkdirs();
@@ -80,11 +76,8 @@ public class FreemarkerUtil {
     public static void main(String[] args) throws IOException, TemplateException {
         String host_fw = "http://10.5.6.14:8001";
         String host_core = "http://10.5.11.142:8007";
-        LinkedList<ApiCaseEntity> datas = ExcelUtilsDemo.excel2Object2();
+        String path = "F:\\workspace\\APITestDemo\\src\\main\\resources\\接口自动化测试demo2.xlsx";
+        LinkedList<ApiCaseEntity> datas = ReadApiCaseUtil.excel2Object2(path);
         genClass(datas, host_fw, host_core);
-
-        //统计用例数量
-        //int size = countFileNumber(new File("D:\\work\\workspace\\Avatar\\src\\test\\java\\com\\testcase\\http"));
-        //System.out.println("用例数量 = [" + size + "]");
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="接口测试" thread-count="1" parallel="tests">
+    <listeners>
+        <listener class-name="com.autotest.listeners.ExtentTestNGITestListener"/>
+    </listeners>
+    <parameter name="host" value="http://10.5.11.142:8201"/>
+    <test name="Test">
+        <groups>
+            <run>
+                <include name="sass" />
+                <exclude name="erp" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.autotest.login.MysoftLoginTestCase"></class>
+        </classes>
+    </test>
+</suite>
